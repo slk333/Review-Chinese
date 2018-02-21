@@ -1,4 +1,5 @@
 import UIKit
+
 class FadeInAnimator: NSObject,
 UIViewControllerAnimatedTransitioning {
 

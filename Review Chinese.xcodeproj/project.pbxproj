@@ -22,8 +22,9 @@
 		2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91C1DB3664B005C277A /* Assets.xcassets */; };
 		2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91E1DB3664B005C277A /* LaunchScreen.storyboard */; };
 		2FFCFC621DC122A0006AD1D5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */; };
+		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
-		7DD5045E203CC6D400E5C520 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* SettingsTableViewController.swift */; };
+		7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +45,9 @@
 		2FF5D91F1DB3664B005C277A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FF5D9211DB3664B005C277A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		7DD5045D203CC6D400E5C520 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7DD5045D203CC6D400E5C520 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA7E5B01FB25C2300AF0031 /* Animator.swift */,
+				7D558CD3203D687200712BD0 /* Fonts.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 		7DFAE56C203C66BE005296F6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7DD5045D203CC6D400E5C520 /* Settings.swift */,
 				2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -129,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				2FF5D9161DB3664B005C277A /* Main.storyboard */,
-				7DD5045D203CC6D400E5C520 /* SettingsTableViewController.swift */,
 				2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */,
 				2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */,
 				2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */,
@@ -215,12 +218,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFCFC621DC122A0006AD1D5 /* DetailViewController.swift in Sources */,
+				7D558CD4203D687300712BD0 /* Fonts.swift in Sources */,
 				2FF5D9151DB3664B005C277A /* AutoEvalViewController.swift in Sources */,
 				2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */,
 				2F6706C31DBB39A10055EB0D /* CharacterTableViewController.swift in Sources */,
 				2F3F2CE01DD0E34C00473AE1 /* EnterWordViewController.swift in Sources */,
 				2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */,
-				7DD5045E203CC6D400E5C520 /* SettingsTableViewController.swift in Sources */,
+				7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */,
 				2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */,
 				2F0677481DB39E56000FFDBD /* Loader.swift in Sources */,
 				2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */,
