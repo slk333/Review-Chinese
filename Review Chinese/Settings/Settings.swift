@@ -12,52 +12,50 @@ enum WordsList:String{
 
 
 class SettingsTableViewController: UITableViewController {
+    // Load les réglages déjà enregistés, en lisant Userdefaults juste avant l'affichage des cells
+    // Sauvegarder directement quand un réglage est modifié
+    // Userdefaults utilise un string pour indexer chaque réglage. Le nom du réglage sur l'interface est utilisé comme string dans userdefault
     
-    // BUT: enregistrer les différents réglages dans userdefaults
-
-    
-    
-    
+    let settings = UserDefaults.standard
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        // garder la selection
-        self.clearsSelectionOnViewWillAppear = false
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+       }
+    
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if UserDefaults.standard.bool(forKey: cell.textLabel?.text ?? "nil"){
+        // Les réglages vont s'afficher
+        if settings.bool(forKey: cell.textLabel?.text ?? "nil"){
+            // si le réglage était activé dans la mémoire persistente, on le représente comme activé sur l'interface
             cell.accessoryType = .checkmark
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
         
     }
     
-   
     
-
-    
-    // mettre checkmark au select
+    // Un réglage a été selectionné
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.section < 2 else{return}
+        // quelle section a été selectionnée ?
+        
+        
         if let cell = tableView.cellForRow(at: indexPath) {
+            // afficher un checkmark pour faire visualiser que le réglage est validé
             cell.accessoryType = .checkmark
-            UserDefaults.standard.set(true, forKey: cell.textLabel!.text ?? "nil")
+            // sauvegarder l'activation du réglage
+            settings.set(true, forKey: cell.textLabel!.text ?? "nil")
+            
         }
     }
     
-    // enlever checkmmark au deselect
+   // Un réglage a été deselectionné
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        // enregistre le choix dans le set activeLists
-       
-        
+    
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .none
-            UserDefaults.standard.set(false, forKey: cell.textLabel!.text ?? "nil")
+            // sauvegarder la desactivation du réglage
+            settings.set(false, forKey: cell.textLabel!.text ?? "nil")
         }
     }
 

@@ -3,7 +3,7 @@ import CoreData
 import AVFoundation
 
 
-
+// Présenter une flashcard et réagir à la réponse
 
 class EnterWordViewController: UIViewController,UITextFieldDelegate {
     
