@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Enter Word View Controller-->
+        <!--Flashcard-->
         <scene sceneID="0hZ-dx-Fd4">
             <objects>
-                <viewController id="lCC-l2-OtE" customClass="EnterWordViewController" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lCC-l2-OtE" customClass="Flashcard" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YGF-bx-ecW"/>
                         <viewControllerLayoutGuide type="bottom" id="PeI-3d-7va"/>

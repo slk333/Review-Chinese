@@ -5,7 +5,23 @@ import AVFoundation
 
 // Présenter une flashcard et réagir à la réponse
 
-class EnterWordViewController: UIViewController,UITextFieldDelegate {
+// initial)
+// Load les réglages et les stocker en mémoire vive (view willAppear)
+// Creer un criètre de selection en fonction des règlages et le stocker
+
+// 1)
+// Obtenir le mot répondant au critère en effectuant la requête Core Data
+// Modifier l'interface pour afficher le mot actuel
+//
+// 2)
+// Réagir à la bonne ou mauvaise réponse sur l'interface
+// Réagir en sauvegardant la modification du score
+// Repartir sur le 1)
+
+
+
+
+class Flashcard: UIViewController,UITextFieldDelegate {
     
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -31,11 +47,62 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
      @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var wrongButton: UIButton!
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // initial)
+        // Load les réglages et les stocker en mémoire vive (view willAppear)
+        // Creer un criètre de selection en fonction des règlages et le stocker
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func backFromDefinitionScene(segue:UIStoryboardSegue){
         
         createNewQuestion()
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

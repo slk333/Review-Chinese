@@ -10,7 +10,7 @@
 		2F0677481DB39E56000FFDBD /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0677471DB39E56000FFDBD /* Loader.swift */; };
 		2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0677491DB39F62000FFDBD /* Mot+CoreDataClass.swift */; };
 		2F06774C1DB39F62000FFDBD /* Mot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06774A1DB39F62000FFDBD /* Mot+CoreDataProperties.swift */; };
-		2F3F2CE01DD0E34C00473AE1 /* EnterWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */; };
+		2F3F2CE01DD0E34C00473AE1 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */; };
 		2F6706C31DBB39A10055EB0D /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */; };
 		2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */; };
 		2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */; };
@@ -31,7 +31,7 @@
 		2F0677471DB39E56000FFDBD /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		2F0677491DB39F62000FFDBD /* Mot+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mot+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2F06774A1DB39F62000FFDBD /* Mot+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mot+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterWordViewController.swift; sourceTree = "<group>"; };
+		2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 		2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */,
 				2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */,
 				2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */,
-				2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */,
+				2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */,
 				2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */,
 				2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */,
 			);
@@ -222,7 +222,7 @@
 				2FF5D9151DB3664B005C277A /* AutoEvalViewController.swift in Sources */,
 				2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */,
 				2F6706C31DBB39A10055EB0D /* CharacterTableViewController.swift in Sources */,
-				2F3F2CE01DD0E34C00473AE1 /* EnterWordViewController.swift in Sources */,
+				2F3F2CE01DD0E34C00473AE1 /* Flashcard.swift in Sources */,
 				2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */,
 				7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */,
 				2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */,
