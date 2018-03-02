@@ -5,17 +5,16 @@ import AVFoundation
 
 // Présenter une flashcard et réagir à la réponse
 
-// initial)
-// Load les réglages et les stocker en mémoire vive (view willAppear)
-// Creer un criètre de selection en fonction des règlages et le stocker
 
-// 1)
-// Obtenir le mot répondant au critère en effectuant la requête Core Data
-// Modifier l'interface pour afficher le mot actuel
+// 1) L'utilisateur veut une flashcard
+// Creer un critère de selection en fonction des règlages et des données
+// Aller chercher l'élément dans la base de donnée
+// Modifier l'interface pour afficher l'élément
 //
-// 2)
-// Réagir à la bonne ou mauvaise réponse sur l'interface
-// Réagir en sauvegardant la modification du score
+
+// 2) L'utilisateur répond
+// Réagir en modifiant l'interface
+// Réagir en modifiant les données
 // Repartir sur le 1)
 
 
@@ -23,6 +22,8 @@ import AVFoundation
 
 class Flashcard: UIViewController,UITextFieldDelegate {
     
+    // critère de selection qui se base sur les niveaux selectionnés dans les réglages
+    var levelPredicate: NSCompoundPredicate!
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentMot:Mot!
@@ -49,10 +50,43 @@ class Flashcard: UIViewController,UITextFieldDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        // initial)
-        // Load les réglages et les stocker en mémoire vive (view willAppear)
-        // Creer un criètre de selection en fonction des règlages et le stocker
-
+        // La scène Flashcard va s'afficher à l'écran
+        
+        // Load les réglages, qui resteront fixes tant que la Flashcard est à l'écran
+        // Creer un critère de selection en fonction des règlages
+        // Stocker ce critère pour pouvoir l'utiser à chaque nouvelle question
+        
+            let settings = UserDefaults.standard
+        
+        
+        var levelPredicates=[NSPredicate]()
+        if settings.bool(forKey: "HSK 1"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))
+            }
+        if settings.bool(forKey: "HSK 2"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))
+        }
+        if settings.bool(forKey: "HSK 3"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "3"))
+        }
+        if settings.bool(forKey: "HSK 4"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "4"))
+        }
+        if settings.bool(forKey: "HSK 5"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "5"))
+        }
+        if settings.bool(forKey: "HSK 6"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "6"))
+        }
+        if settings.bool(forKey: "Custom List"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "7"))
+        }
+            
+        
+        levelPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
+       
+        createNewQuestion()
+        
     }
     
     
@@ -173,7 +207,7 @@ class Flashcard: UIViewController,UITextFieldDelegate {
     }
     
     
-    
+ /*
     @IBAction func textChanged(_ sender: UITextField) {
         // User a écrit quelque chose
         // Vérifier si c'est juste
@@ -237,7 +271,7 @@ class Flashcard: UIViewController,UITextFieldDelegate {
         
         
     }
-    
+   */
     
     func toggleOff(){
         
@@ -334,9 +368,11 @@ class Flashcard: UIViewController,UITextFieldDelegate {
         
         // PREDICATES
       
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(wordsNumberForCurrentLevel))
+        
+        
+     
             let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredicate])
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,reviewPredicate])
             
         
         
@@ -363,7 +399,7 @@ class Flashcard: UIViewController,UITextFieldDelegate {
                 
                     let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(wordsNumberForCurrentLevel))
                     let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,newPredicate])
                 
    
                
@@ -403,14 +439,14 @@ class Flashcard: UIViewController,UITextFieldDelegate {
         }
         
         
-        
+        print("coredata level:\(currentMot.level)")
     }
     
     override func viewDidLoad() {
         let textFieldAppearance = UITextField.appearance()
         textFieldAppearance.keyboardAppearance = .dark
         super.viewDidLoad()
-        createNewQuestion()
+        
        // answerTF.becomeFirstResponder()
         
         

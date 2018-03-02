@@ -48,7 +48,7 @@ UINavigationControllerDelegate {
         to toVC: UIViewController
         ) -> UIViewControllerAnimatedTransitioning? {
         
-        if fromVC is DetailViewController && toVC is EnterWordViewController{
+        if fromVC is DetailViewController && toVC is Flashcard{
             return FadeInAnimator()}
         else {return nil}
     }
