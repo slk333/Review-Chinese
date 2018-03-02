@@ -47,7 +47,7 @@ class MenuViewController: UIViewController {
         
         scoreTotalActuel=0
         for mot in mots{
-            scoreTotalActuel+=Int(mot.score)
+            scoreTotalActuel+=Int(mot.themeScore)
         }
    
 

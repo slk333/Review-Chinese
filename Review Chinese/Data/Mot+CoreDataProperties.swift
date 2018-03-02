@@ -1,18 +1,29 @@
+//
+//  Mot+CoreDataProperties.swift
+//  Review Chinese
+//
+//  Created by Antoine Weber on 02/03/2018.
+//  Copyright © 2018 antoine weber. All rights reserved.
+//
+//
+
 import Foundation
 import CoreData
 
 
 extension Mot {
-    
-    convenience init(index:Int,character: String,pinyin:String,definition:String,score:Int,date:Double,exemple:String, insertInto context: NSManagedObjectContext?) {
+
+    convenience init(index:Int,character: String,pinyin:String,definition:String,exemple:String,insertInto context: NSManagedObjectContext?) {
         self.init(context: context!)
-        self.character=character
-        self.definition=definition
-        self.pinyin=pinyin
-        self.score=Int32(score)
-        self.date=date
-        self.index=Int32(index)
-        self.exemple=exemple
+        self.themeScore = 0
+        self.versionScore = 0
+        self.themeExpiration = 1000000000
+        self.versionExpiration = 1000000000
+        self.character = character
+        self.definition = definition
+        self.exemple = exemple
+        self.pinyin = pinyin
+        self.index = Int32(index)
         self.level = {
             switch self.index{
             case let x where x >= 1203:
@@ -31,20 +42,20 @@ extension Mot {
         }()
         
     }
-
     
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Mot> {
-        return NSFetchRequest<Mot>(entityName: "Mot");
+    
+      @nonobjc public class func fetchRequest() -> NSFetchRequest<Mot> {
+        return NSFetchRequest<Mot>(entityName: "Mot")
     }
-
-    @NSManaged public var character: String!
-    @NSManaged public var pinyin: String!
-    @NSManaged public var definition: String!
-    @NSManaged public var score: Int32
-    @NSManaged public var date: Double
+    @NSManaged public var exemple: String?
+    @NSManaged public var character: String?
+    @NSManaged public var themeExpiration: Int64
+    @NSManaged public var definition: String?
     @NSManaged public var index: Int32
-    @NSManaged public var exemple: String!
     @NSManaged public var level: Int16
-    
+    @NSManaged public var pinyin: String?
+    @NSManaged public var versionScore: Int16
+    @NSManaged public var versionExpiration: Int64
+    @NSManaged public var themeScore: Int16
+
 }

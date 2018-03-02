@@ -254,9 +254,6 @@
                                         <state key="normal" title="Settings (old)">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="coV-Wd-pKV" kind="show" identifier="toSettings" id="GzU-TU-kqO"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-bx-cMg">
                                         <rect key="frame" x="0.0" y="201" width="343" height="61"/>
@@ -295,86 +292,6 @@
             </objects>
             <point key="canvasLocation" x="-542" y="610"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="iZ8-Tm-XUY">
-            <objects>
-                <viewController id="coV-Wd-pKV" customClass="SettingsViewController" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4XK-VQ-hHc"/>
-                        <viewControllerLayoutGuide type="bottom" id="j45-Kg-70q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s1b-Ps-mca">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="avq-wN-kNW">
-                                <rect key="frame" x="16" y="20" width="343" height="96"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="yD8-tz-AVP">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="38"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HSK Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyU-bX-gXT">
-                                                <rect key="frame" x="0.0" y="0.0" width="149" height="38"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="149" id="8F9-6U-HHQ"/>
-                                                    <constraint firstAttribute="height" constant="38" id="CEp-Vl-svQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="27"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="4" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-Qs-DNe">
-                                                <rect key="frame" x="224" y="0.0" width="119" height="39"/>
-                                                <segments>
-                                                    <segment title="1"/>
-                                                    <segment title="2"/>
-                                                    <segment title="3"/>
-                                                    <segment title="4"/>
-                                                    <segment title="5"/>
-                                                </segments>
-                                                <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                            </segmentedControl>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="pQM-kc-wRB">
-                                        <rect key="frame" x="0.0" y="58" width="343" height="38"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRW-CR-vco">
-                                                <rect key="frame" x="0.0" y="0.0" width="79.333333333333329" height="38"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="38" id="Uc6-jN-urh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="27"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-9H-aNS">
-                                                <rect key="frame" x="294" y="0.0" width="51" height="38"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                                <color key="onTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="avq-wN-kNW" secondAttribute="trailing" id="FgS-lw-590"/>
-                            <constraint firstItem="avq-wN-kNW" firstAttribute="top" secondItem="4XK-VQ-hHc" secondAttribute="bottom" constant="20" id="bL9-iz-a2h"/>
-                            <constraint firstItem="avq-wN-kNW" firstAttribute="leading" secondItem="s1b-Ps-mca" secondAttribute="leadingMargin" id="rwq-tf-zdW"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="hskLevelSegmentedControl" destination="bcj-Qs-DNe" id="1Rc-Uw-6rG"/>
-                        <outlet property="voiceEnabledSwitch" destination="gWa-9H-aNS" id="6w9-NY-hdu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l9P-U0-EAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-414" y="1317"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="ppc-WD-LdR">
             <objects>
@@ -411,7 +328,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="English to Chinese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i7u-aV-0ws">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="English To Chinese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i7u-aV-0ws">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

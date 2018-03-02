@@ -31,7 +31,7 @@ var confirmationMode=false
         guard !confirmationMode else {confirm()
             return}
         confirmationMode=true
-        currentMot.date=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
+        currentMot.themeExpiration=Int64(Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate)
         try! context.save()
         
         
@@ -49,7 +49,7 @@ var confirmationMode=false
         
         
             // Mise à jour du score
-        if currentMot.score<10{currentMot.score+=1}
+        if currentMot.themeScore<10{currentMot.themeScore+=1}
      //   scoreLabel.text=String(currentMot.score)
    scoreButtonsAction()
         
@@ -75,10 +75,10 @@ var confirmationMode=false
         
     
             // Mise à jour du score
-        if currentMot.score>3{currentMot.score=3}
+        if currentMot.themeScore>3{currentMot.themeScore=3}
         else {
-        if currentMot.score>1{currentMot.score-=2}
-        else{ if currentMot.score==1{currentMot.score=0}}}
+        if currentMot.themeScore>1{currentMot.themeScore-=2}
+        else{ if currentMot.themeScore==1{currentMot.themeScore=0}}}
             scoreButtonsAction()
         
         changeAnswerButtonToVoidAndDisabled(true)
@@ -114,8 +114,8 @@ var confirmationMode=false
     // Mettre à jour la date d'expiration
     
    func updateExpirationDateAndSave(){
-    let tempsÀajouter=100*pow(3, Double(currentMot.score))
-    currentMot.date=Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate
+    let tempsÀajouter=100*pow(3, Double(currentMot.themeScore))
+    currentMot.themeExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
     try! context.save()
     }
     
@@ -195,7 +195,7 @@ var confirmationMode=false
         let dateOfNow:Double=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
         
         let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
-        expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(dateOfNow))
+        expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.themeExpiration), String(dateOfNow))
         
         guard  let expiredWords=try? context.fetch(expiredWordsRequest) else{return}
         showTimer=Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: {_ in self.toggleOn()})

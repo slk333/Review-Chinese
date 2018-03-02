@@ -42,11 +42,11 @@ class CharacterTableViewController: UITableViewController {
          let triParDate:NSFetchRequest<Mot>=Mot.fetchRequest()
         if hskLevel==1{
             let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
-            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")
+            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")
             triParDate.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,notNew])
             
         }
-        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")}
+        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")}
         
         
         
@@ -102,11 +102,11 @@ class CharacterTableViewController: UITableViewController {
         let characterLabel=cell.viewWithTag(1) as! UILabel
         let scoreLabel=cell.viewWithTag(2) as! UILabel
         characterLabel.text=mot.character
-         scoreLabel.text=String(mot.score)
+         scoreLabel.text=String(mot.themeScore)
        
             let dateLabel=cell.viewWithTag(3) as! UILabel
-        if mot.date != 1000000000{
-            let date = Date(timeIntervalSinceReferenceDate: mot.date)
+        if mot.themeExpiration != 1000000000{
+            let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.themeExpiration))
             dateLabel.text=dateFormatter.string(from: date)}
         else{
         dateLabel.text=""

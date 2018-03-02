@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text=String(mot.score)
+        scoreLabel.text=String(mot.themeExpiration)
         characterLabel.text=mot.character
         pinyinLabel.text=mot.pinyin
         exempleTextView.text=mot.exemple

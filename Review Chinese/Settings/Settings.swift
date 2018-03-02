@@ -51,7 +51,11 @@ class SettingsTableViewController: UITableViewController {
     
    // Un réglage a été deselectionné
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    
+        // si il s'agit deselectionner un mode de révision, exiger qu'il en reste au moins un après la deselection, autrement dit qu'il y en a actuellement deux
+        if indexPath.section == 0{
+            guard tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType == .checkmark && tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.accessoryType == .checkmark else{return}
+        }
+        
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .none
             // sauvegarder la desactivation du réglage
