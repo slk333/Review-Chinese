@@ -1,6 +1,6 @@
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class Dashboard: UITableViewController {
 let listTitles=["Review Schedule","HSK 1","HSK 2","HSK 3","HSK 4","HSK 5"]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

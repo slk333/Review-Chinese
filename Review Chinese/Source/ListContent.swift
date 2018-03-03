@@ -1,6 +1,6 @@
 import UIKit
 import CoreData
-class CharacterTableViewController: UITableViewController {
+class ListContent: UITableViewController {
     
     
     

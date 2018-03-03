@@ -28,7 +28,7 @@ var voiceEnabled=true
 
 // MENU VIEW CONTROLLER
 
-class MenuViewController: UIViewController {
+class Menu: UIViewController {
     
     var scoreTotalActuel:Int=0
      let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
