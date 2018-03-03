@@ -22,7 +22,7 @@
 		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
 		7D97531D204A202F00B593A9 /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = 7D97531C204A202F00B593A9 /* open-sans */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
-		7DC9778C204A302E003E212C /* BinTxt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9778B204A302E003E212C /* BinTxt */; };
+		7DC9778C204A302E003E212C /* BinTxt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9778B204A302E003E212C /* BinTxt.txt */; };
 		7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
-		7DC9778B204A302E003E212C /* BinTxt */ = {isa = PBXFileReference; lastKnownFileType = text; path = BinTxt; sourceTree = "<group>"; };
+		7DC9778B204A302E003E212C /* BinTxt.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = BinTxt.txt; sourceTree = "<group>"; };
 		7DD5045D203CC6D400E5C520 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 				7D97531C204A202F00B593A9 /* open-sans */,
 				7DA7E5B01FB25C2300AF0031 /* Animator.swift */,
 				7D558CD3203D687200712BD0 /* Fonts.swift */,
-				7DC9778B204A302E003E212C /* BinTxt */,
+				7DC9778B204A302E003E212C /* BinTxt.txt */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DC9778C204A302E003E212C /* BinTxt in Resources */,
+				7DC9778C204A302E003E212C /* BinTxt.txt in Resources */,
 				2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */,
 				7D97531D204A202F00B593A9 /* open-sans in Resources */,
 				2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */,
