@@ -20,9 +20,9 @@
 		2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91C1DB3664B005C277A /* Assets.xcassets */; };
 		2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91E1DB3664B005C277A /* LaunchScreen.storyboard */; };
 		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
-		7D97531B2049E17B00B593A9 /* Bin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D97531A2049E17B00B593A9 /* Bin.swift */; };
 		7D97531D204A202F00B593A9 /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = 7D97531C204A202F00B593A9 /* open-sans */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
+		7DC9778C204A302E003E212C /* BinTxt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9778B204A302E003E212C /* BinTxt */; };
 		7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,9 +42,9 @@
 		2FF5D91F1DB3664B005C277A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FF5D9211DB3664B005C277A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		7D97531A2049E17B00B593A9 /* Bin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bin.swift; sourceTree = "<group>"; };
 		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		7DC9778B204A302E003E212C /* BinTxt */ = {isa = PBXFileReference; lastKnownFileType = text; path = BinTxt; sourceTree = "<group>"; };
 		7DD5045D203CC6D400E5C520 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 				7D97531C204A202F00B593A9 /* open-sans */,
 				7DA7E5B01FB25C2300AF0031 /* Animator.swift */,
 				7D558CD3203D687200712BD0 /* Fonts.swift */,
-				7D97531A2049E17B00B593A9 /* Bin.swift */,
+				7DC9778B204A302E003E212C /* BinTxt */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -201,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC9778C204A302E003E212C /* BinTxt in Resources */,
 				2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */,
 				7D97531D204A202F00B593A9 /* open-sans in Resources */,
 				2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */,
@@ -225,7 +226,6 @@
 				2F0677481DB39E56000FFDBD /* Loader.swift in Sources */,
 				2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */,
 				2F06774C1DB39F62000FFDBD /* Mot+CoreDataProperties.swift in Sources */,
-				7D97531B2049E17B00B593A9 /* Bin.swift in Sources */,
 				7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */,
 				2FF5D91B1DB3664B005C277A /* HSKRekt.xcdatamodeld in Sources */,
 			);
