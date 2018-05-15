@@ -4,9 +4,9 @@ class Dashboard: UITableViewController {
 let listTitles=["Review Schedule","HSK 1","HSK 2","HSK 3","HSK 4","HSK 5"]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let characterVC=segue.destination as! CharacterTableViewController
+        let characterVC=segue.destination as! ListContent
         let cell=sender as! UITableViewCell
-        let label=cell.viewWithTag(1)! as! UILabel
+        let label=cell.textLabel!
         characterVC.listeEnCours=label.text!
         if label.text! == "HSK 2"{characterVC.decalage=153}
          if label.text! == "HSK 3"{characterVC.decalage=153+150}
@@ -17,18 +17,15 @@ let listTitles=["Review Schedule","HSK 1","HSK 2","HSK 3","HSK 4","HSK 5"]
    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        if section == 0 {
+            return 2
+        }
+        else{
+            return 6
+        }
     }
  
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
-        let label=cell.viewWithTag(1)! as! UILabel
-        label.text=listTitles[indexPath.row]
-      
-        return cell
-        
-    }
     
 
     /*

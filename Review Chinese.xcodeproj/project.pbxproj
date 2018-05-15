@@ -112,9 +112,9 @@
 		7DFAE56B203C66AD005296F6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				7D97531C204A202F00B593A9 /* open-sans */,
 				7DA7E5B01FB25C2300AF0031 /* Animator.swift */,
 				7D558CD3203D687200712BD0 /* Fonts.swift */,
+				7D97531C204A202F00B593A9 /* open-sans */,
 				7DC9778B204A302E003E212C /* BinTxt.txt */,
 			);
 			path = Helper;

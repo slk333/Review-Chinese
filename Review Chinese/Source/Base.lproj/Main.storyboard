@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
-        <array key="PingFang.ttc">
-            <string>PingFangSC-Medium</string>
-            <string>PingFangSC-Regular</string>
-            <string>PingFangSC-Semibold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Flashcard-->
         <scene sceneID="0hZ-dx-Fd4">
@@ -191,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="308" y="627"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Menu-->
         <scene sceneID="w5X-4k-2E7">
             <objects>
-                <viewController id="cy8-98-ZOB" customClass="MenuViewController" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cy8-98-ZOB" customClass="Menu" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sM9-j3-6n6"/>
                         <viewControllerLayoutGuide type="bottom" id="jDl-zo-0pT"/>
@@ -289,7 +279,7 @@
                             <tableViewSection headerTitle="Review mode" id="lgn-AQ-Cdk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="Etc-pA-mvi" style="IBUITableViewCellStyleDefault" id="GBc-M3-l3o">
-                                        <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GBc-M3-l3o" id="nyo-XM-9du">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -347,7 +337,7 @@
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" editingAccessoryType="checkmark" textLabel="s2j-eF-uIl" style="IBUITableViewCellStyleDefault" id="84l-oz-d4d">
-                                        <rect key="frame" x="0.0" y="243.33333333333334" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="243.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="84l-oz-d4d" id="Wrg-mm-Okf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -520,8 +510,8 @@
                         <sections>
                             <tableViewSection headerTitle="Schedule" id="B2i-pv-tLM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="p8f-F6-rlz" style="IBUITableViewCellStyleDefault" id="861-mK-7G4">
-                                        <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="p8f-F6-rlz" style="IBUITableViewCellStyleDefault" id="861-mK-7G4">
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="861-mK-7G4" id="zro-bB-CoU">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -537,7 +527,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="xjJ-P6-2ui" style="IBUITableViewCellStyleDefault" id="nY7-iD-BQP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="xjJ-P6-2ui" style="IBUITableViewCellStyleDefault" id="nY7-iD-BQP">
                                         <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nY7-iD-BQP" id="VOn-Pi-Exq">
@@ -558,7 +548,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Lists" id="4DA-QT-FoQ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="Jat-jX-REZ" style="IBUITableViewCellStyleDefault" id="QR1-6r-5J0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="Jat-jX-REZ" style="IBUITableViewCellStyleDefault" id="QR1-6r-5J0">
                                         <rect key="frame" x="0.0" y="199.33333333333334" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QR1-6r-5J0" id="oU3-Dv-TIK">
@@ -578,8 +568,8 @@
                                             <segue destination="Dpb-MF-uR3" kind="show" id="xWB-c4-oFJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="HtU-af-hTT" style="IBUITableViewCellStyleDefault" id="fdh-Pl-2b6">
-                                        <rect key="frame" x="0.0" y="243.33333333333334" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="HtU-af-hTT" style="IBUITableViewCellStyleDefault" id="fdh-Pl-2b6">
+                                        <rect key="frame" x="0.0" y="243.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fdh-Pl-2b6" id="0gs-ze-5Om">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -595,7 +585,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="o8l-RL-fzw" style="IBUITableViewCellStyleDefault" id="fM2-FE-y20">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="o8l-RL-fzw" style="IBUITableViewCellStyleDefault" id="fM2-FE-y20">
                                         <rect key="frame" x="0.0" y="287.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fM2-FE-y20" id="kWv-5i-FgW">
@@ -613,7 +603,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="zfu-a9-Itp" style="IBUITableViewCellStyleDefault" id="eiM-qA-aeV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="zfu-a9-Itp" style="IBUITableViewCellStyleDefault" id="eiM-qA-aeV">
                                         <rect key="frame" x="0.0" y="331.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eiM-qA-aeV" id="Gao-8U-B73">
@@ -631,7 +621,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="dsg-oP-NRj" style="IBUITableViewCellStyleDefault" id="Avz-QN-urv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="dsg-oP-NRj" style="IBUITableViewCellStyleDefault" id="Avz-QN-urv">
                                         <rect key="frame" x="0.0" y="375.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Avz-QN-urv" id="2Lq-wL-8Uf">
@@ -649,7 +639,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="Aez-iH-xG9" style="IBUITableViewCellStyleDefault" id="jco-Cc-NtO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dashboardCell" textLabel="Aez-iH-xG9" style="IBUITableViewCellStyleDefault" id="jco-Cc-NtO">
                                         <rect key="frame" x="0.0" y="419.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jco-Cc-NtO" id="yRD-Vr-lMe">
@@ -735,9 +725,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <connections>
-                                    <segue destination="lCC-l2-OtE" kind="show" id="moh-4Y-okD"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -753,6 +740,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZYC-eZ-Vgw">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPf-Ca-Bay" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vb8-qg-pOj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1Uk-eB-K6J">
@@ -763,12 +751,9 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <outlet property="delegate" destination="dGR-xA-fQj" id="bIU-az-wCg"/>
                         <segue destination="cy8-98-ZOB" kind="relationship" relationship="rootViewController" id="HhJ-37-F6M"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sPf-Ca-Bay" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="dGR-xA-fQj" customClass="NavigationControllerDelegate" customModule="Review_Chinese" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-1270" y="610"/>
         </scene>
@@ -776,7 +761,4 @@
     <resources>
         <image name="logo" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="moh-4Y-okD"/>
-    </inferredMetricsTieBreakers>
 </document>

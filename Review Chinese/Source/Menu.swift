@@ -21,7 +21,7 @@ var wordsNumberForCurrentLevel:Int{
     
     
 }
-var voiceEnabled=true
+var voiceEnabled=false
 
 
 
@@ -54,21 +54,9 @@ class Menu: UIViewController {
     }
     
     override func viewDidLoad() {
-        // check au lancement de l'application si la base de donné est vide
-        
-        let defaults = UserDefaults.standard
-        let hasHSK5 = defaults.bool(forKey: "hasHSK5")
-        if defaults.integer(forKey: "hskLevel")==0{
-        defaults.set(true, forKey: "voiceEnabled")
-            defaults.set("1",forKey: "hskLevel")
-        }
-        
-        voiceEnabled =  defaults.bool(forKey: "voiceEnabled")
-        hskLevel = defaults.integer(forKey: "hskLevel")
      
-        if !hasHSK5{_=Loader()}
-        super.viewDidLoad()
-          }
+          super.viewDidLoad()
+    }
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

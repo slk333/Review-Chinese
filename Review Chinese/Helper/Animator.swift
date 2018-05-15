@@ -1,5 +1,5 @@
 import UIKit
-
+/*
 class FadeInAnimator: NSObject,
 UIViewControllerAnimatedTransitioning {
 
@@ -53,3 +53,4 @@ UINavigationControllerDelegate {
         else {return nil}
     }
 }
+*/

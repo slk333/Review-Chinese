@@ -19,7 +19,10 @@ class ListContent: UITableViewController {
     
     // méthodes
     
+      /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        
      let destination=segue.destination as! DetailViewController
         
         fetchRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.index), String(selectedRow+decalage))
@@ -30,12 +33,18 @@ class ListContent: UITableViewController {
 
             destination.mot=mot
        
-        
+ 
     }
+    
+    
+    
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRow=indexPath.row
         return indexPath
     }
+ */
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +59,7 @@ class ListContent: UITableViewController {
         
         
         
-            triParDate.sortDescriptors=[NSSortDescriptor(key: "date", ascending: true)]
+            triParDate.sortDescriptors=[NSSortDescriptor(key: "themeExpiration", ascending: true)]
         motsSortedByDate=try! context.fetch(triParDate)
         
         

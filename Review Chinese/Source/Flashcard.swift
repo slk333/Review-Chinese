@@ -18,7 +18,7 @@ import AVFoundation
 // Repartir sur le 1)
 
 
-class Flashcard: UIViewController,UITextFieldDelegate {
+class Flashcard: UIViewController{
     
     // critère de selection Core Data qui se base sur les niveaux selectionnés dans les réglages
     var levelPredicate: NSCompoundPredicate!
@@ -105,7 +105,7 @@ class Flashcard: UIViewController,UITextFieldDelegate {
     }
 
     
-    
+    /*
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // on va dans la scene de definition
@@ -119,6 +119,7 @@ class Flashcard: UIViewController,UITextFieldDelegate {
         (segue.destination as! DetailViewController).mot=currentMot
         (segue.destination as! DetailViewController).haveBackItem = false
 }
+ */
     
     @IBAction func skip(_ sender: UIButton){
         if correctOrFalseSymbolLabel.text! != "✗"{
