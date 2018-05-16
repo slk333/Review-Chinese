@@ -26,29 +26,29 @@ class Flashcard: UIViewController{
     // réglage pour savoir si version(traduction du chinois) ou thème (trouver le chinois)
     var themeFlashcard = true
     var versionFlashcard = false
-
+    
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var currentMot:Mot!
+    var currentWord:Mot!
     var correctText:String!
-    var scoreTotalActuel:Int=0
-    var stringToEnter=""
+    var currentScore:Int=0
     let defaultGreenColor=UIColor(red: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
     var incrementUp = Int32(3)
-
-  let speechSynthesizer = AVSpeechSynthesizer()
-  let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
+    
+    let speechSynthesizer = AVSpeechSynthesizer()
+    let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
     var utterance=AVSpeechUtterance(string: "我")
     
-
+    
     
     @IBOutlet weak var characterLabel:UILabel!
-    @IBOutlet weak var definitionTV:UITextView!
-    @IBOutlet weak var answerTF: UITextField!
+   
+    @IBOutlet weak var definitionLabel: UILabel!
+    @IBOutlet weak var pronunciationTF: UITextField!
     @IBOutlet weak var correctOrFalseSymbolLabel:UILabel!
     @IBOutlet weak var scoreBar:UIProgressView!
     @IBOutlet weak var infoButton: UIButton!
-     @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var wrongButton: UIButton!
     
     
@@ -59,14 +59,14 @@ class Flashcard: UIViewController{
         // Creer un critère de selection en fonction des règlages
         // Stocker ce critère pour pouvoir l'utiser à chaque nouvelle question
         
-            let settings = UserDefaults.standard
+        let settings = UserDefaults.standard
         
         // quelles sont les listes sélectionnées dans les réglages
         
         var levelPredicates=[NSPredicate]()
         if settings.bool(forKey: "HSK 1"){
             levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))
-            }
+        }
         if settings.bool(forKey: "HSK 2"){
             levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))
         }
@@ -87,7 +87,7 @@ class Flashcard: UIViewController{
         }
         
         levelPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
-       
+        
         // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
         versionFlashcard = settings.bool(forKey: "Chinese To English")
         themeFlashcard = settings.bool(forKey: "English To Chinese")
@@ -103,41 +103,41 @@ class Flashcard: UIViewController{
         
         createNewQuestion()
     }
-
+    
     
     /*
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // on va dans la scene de definition
-        guard let _ = sender as? UIButton else{return}
-        
-        // si c'est via le bouton faux, on réduit le score
-        
-        decreaseScoreAndSave()
-        
-        // passer le mot actuel à la dictionaryScene
-        (segue.destination as! DetailViewController).mot=currentMot
-        (segue.destination as! DetailViewController).haveBackItem = false
-}
- */
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // on va dans la scene de definition
+     guard let _ = sender as? UIButton else{return}
+     
+     // si c'est via le bouton faux, on réduit le score
+     
+     decreaseScoreAndSave()
+     
+     // passer le mot actuel à la dictionaryScene
+     (segue.destination as! DetailViewController).mot=currentWord
+     (segue.destination as! DetailViewController).haveBackItem = false
+     }
+     */
     
     @IBAction func skip(_ sender: UIButton){
         if correctOrFalseSymbolLabel.text! != "✗"{
             
             
-          increaseScoreAndSave()
+            increaseScoreAndSave()
             
         }
         
         // gestion de l'interface
         correctOrFalseSymbolLabel.textColor=defaultGreenColor
         correctOrFalseSymbolLabel.text="✓"
-        characterLabel.text=currentMot.character
-        answerTF.text=currentMot.pinyin
+        characterLabel.text=currentWord.character
+        pronunciationTF.text=currentWord.pinyin
         // afficher la définition
         skipButton.isEnabled=false
         wrongButton.isEnabled=false
-        definitionTV.text=currentMot.definition
+        definitionLabel.text=currentWord.definition
         // VOICE
         if voiceEnabled{
             self.speechSynthesizer.speak(utterance)}
@@ -154,27 +154,27 @@ class Flashcard: UIViewController{
     
     func increaseScoreAndSave(){
         if themeFlashcard{
-        
-        if currentMot.themeScore < 6 {incrementUp = 3}
-        if currentMot.themeScore >= 6 {incrementUp = 2}
-        if currentMot.themeScore >= 8 {incrementUp = 1}
-        if currentMot.themeScore == 10 {incrementUp = 0}
-        if currentMot.themeScore == 11 {incrementUp = -1}
-        currentMot.themeScore += Int16(incrementUp)
-        updateExpirationDateAndSave()
-            scoreTotalActuel += Int(incrementUp)
+            
+            if currentWord.themeScore < 6 {incrementUp = 3}
+            if currentWord.themeScore >= 6 {incrementUp = 2}
+            if currentWord.themeScore >= 8 {incrementUp = 1}
+            if currentWord.themeScore == 10 {incrementUp = 0}
+            if currentWord.themeScore == 11 {incrementUp = -1}
+            currentWord.themeScore += Int16(incrementUp)
+            updateExpirationDateAndSave()
+            currentScore += Int(incrementUp)
             
         }
         else if versionFlashcard{
             
-            if currentMot.versionScore < 6 {incrementUp = 3}
-            if currentMot.versionScore >= 6 {incrementUp = 2}
-            if currentMot.versionScore >= 8 {incrementUp = 1}
-            if currentMot.versionScore == 10 {incrementUp = 0}
-            if currentMot.versionScore == 11 {incrementUp = -1}
-            currentMot.versionScore += Int16(incrementUp)
+            if currentWord.versionScore < 6 {incrementUp = 3}
+            if currentWord.versionScore >= 6 {incrementUp = 2}
+            if currentWord.versionScore >= 8 {incrementUp = 1}
+            if currentWord.versionScore == 10 {incrementUp = 0}
+            if currentWord.versionScore == 11 {incrementUp = -1}
+            currentWord.versionScore += Int16(incrementUp)
             updateExpirationDateAndSave()
-            scoreTotalActuel += Int(incrementUp)
+            currentScore += Int(incrementUp)
             
         }
         
@@ -183,39 +183,39 @@ class Flashcard: UIViewController{
     func decreaseScoreAndSave(){
         
         if themeFlashcard{
-        if currentMot.themeScore>3{currentMot.themeScore=3}
-        else {
-            if currentMot.themeScore>1{currentMot.themeScore-=2}
-            else{ if currentMot.themeScore==1{currentMot.themeScore=0}}}
-        updateExpirationDateAndSave()
-        scoreTotalActuel-=1
+            if currentWord.themeScore>3{currentWord.themeScore=3}
+            else {
+                if currentWord.themeScore>1{currentWord.themeScore-=2}
+                else{ if currentWord.themeScore==1{currentWord.themeScore=0}}}
+            updateExpirationDateAndSave()
+            currentScore-=1
         }
         else if versionFlashcard{
             
-            if currentMot.versionScore>3{currentMot.versionScore=3}
+            if currentWord.versionScore>3{currentWord.versionScore=3}
             else {
-                if currentMot.versionScore>1{currentMot.versionScore-=2}
-                else{ if currentMot.versionScore==1{currentMot.versionScore=0}}}
+                if currentWord.versionScore>1{currentWord.versionScore-=2}
+                else{ if currentWord.versionScore==1{currentWord.versionScore=0}}}
             updateExpirationDateAndSave()
-            scoreTotalActuel-=1
+            currentScore-=1
         }
-            
-        }
+        
+    }
     
     
-  
-
+    
+    
     
     func updateExpirationDateAndSave(){
         // définition d'une nouvelle date de révision et sauvegarde
         if themeFlashcard{
-        let tempsÀajouter=100*pow(3, Double(currentMot.themeScore))
-        currentMot.themeExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
-        try! context.save()
+            let tempsÀajouter=100*pow(3, Double(currentWord.themeScore))
+            currentWord.themeExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
+            try! context.save()
         }
         else if versionFlashcard{
-            let tempsÀajouter=100*pow(3, Double(currentMot.versionScore))
-            currentMot.versionExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
+            let tempsÀajouter=100*pow(3, Double(currentWord.versionScore))
+            currentWord.versionExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
             try! context.save()
             
         }
@@ -227,25 +227,22 @@ class Flashcard: UIViewController{
     
     func createNewQuestion(){
         // Nettoyer et préparer l'interface
-
+        
         skipButton.isEnabled=true
         wrongButton.isEnabled=true
         correctOrFalseSymbolLabel.text=""
-        answerTF.text=""
-        definitionTV.text=""
-        answerTF.isEnabled=false
+        pronunciationTF.text=""
+        definitionLabel.text=""
+       
         
         /*
-        scoreBar.progress=Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10)
-        print(Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10))
- */
+         scoreBar.progress=Float(currentScore)/Float(wordsNumberForCurrentLevel*10)
+         print(Float(currentScore)/Float(wordsNumberForCurrentLevel*10))
+         */
         
         // Choix d'une flashcard
         // Thème ou Version
         
-      
-        
-
         // Vérifier si il y a des mot à réviser
         
         
@@ -253,58 +250,57 @@ class Flashcard: UIViewController{
         let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
         
         // PREDICATES
-      
-          if themeFlashcard{
+        
+        if themeFlashcard{
             let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.themeExpiration), String(currentDateAsNumber))
             expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,reviewPredicate])
             
             let sorting=NSSortDescriptor(key: "themeExpiration", ascending: true)
             expiredWordsRequest.sortDescriptors=[sorting]
-        
+            
             guard  let expiredWords=try? context.fetch(expiredWordsRequest) else {return}
-        
+            
             if expiredWords.count != 0{
                 // si il y a un mot à réviser, on prend le plus ancien
-            currentMot=expiredWords.first
+                currentWord=expiredWords.first
             }
-            
-            else{
-            // Il n'y a plus de mot à réviser
-            // 1) il reste des mots jamais apparus
                 
-            let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
-              
-            
-                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.themeExpiration), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,newPredicate])
+            else{
+                // Il n'y a plus de mot à réviser
+                // 1) il reste des mots jamais apparus
+                
+                let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
+                
+                
+                let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.themeExpiration), "1000000000")
+                fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,newPredicate])
                 
                 guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
-              
-                if neverSeenWords.count != 0{
-                    currentMot=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
                 
+                if neverSeenWords.count != 0{
+                    currentWord=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
+                    
                 }
-            
-                // il ne reste plus du tout de mots à réviser
-
-            else {
+                    
+                    // il ne reste plus du tout de mots à réviser
+                    
+                else {
                     skipButton.isHidden=true
-            answerTF.text="Come back later!"
-                    answerTF.isEnabled=false
-            characterLabel.text=""
-            infoButton.isHidden=true
-                 return
+                    pronunciationTF.text="Come back later!"
+                    pronunciationTF.isEnabled=false
+                    characterLabel.text=""
+                    infoButton.isHidden=true
+                    return
                 }
-           
-        
-        }
-        
-        
-        // mise à jour de l'interface
-      
-        characterLabel.text=""
-        definitionTV.text=currentMot.definition
-        correctText=currentMot.pinyin!
+                
+                
+            }
+            
+            
+            // mise à jour de l'interface
+            
+            characterLabel.text=""
+            definitionLabel.text=currentWord.definition
             
         }
         
@@ -312,7 +308,7 @@ class Flashcard: UIViewController{
             
             // PREDICATES
             
-   
+            
             let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.versionExpiration), String(currentDateAsNumber))
             expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,reviewPredicate])
             
@@ -324,7 +320,7 @@ class Flashcard: UIViewController{
             
             if expiredWords.count != 0{
                 // si il y a un mot à réviser, on prend le plus ancien
-                currentMot=expiredWords.first
+                currentWord=expiredWords.first
             }
                 
             else{
@@ -341,7 +337,7 @@ class Flashcard: UIViewController{
                 guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
                 
                 if neverSeenWords.count != 0{
-                    currentMot=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
+                    currentWord=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
                     
                 }
                     
@@ -349,8 +345,8 @@ class Flashcard: UIViewController{
                     
                 else {
                     skipButton.isHidden=true
-                    answerTF.text="Come back later!"
-                    answerTF.isEnabled=false
+                    pronunciationTF.text="Come back later!"
+                    pronunciationTF.isEnabled=false
                     characterLabel.text=""
                     infoButton.isHidden=true
                     return
@@ -361,36 +357,28 @@ class Flashcard: UIViewController{
             
             // mise à jour de l'interface
             
-
-            characterLabel.text = currentMot.character
-            correctText=currentMot.pinyin!
             
-
+            characterLabel.text = currentWord.character
+           
+            
+            
             
             
         }
         
         
         if voiceEnabled{
-            utterance=AVSpeechUtterance(string: currentMot.character!)
+            utterance=AVSpeechUtterance(string: currentWord.character!)
             utterance.voice=self.voice
             
         }
         
         
-        print("coredata level:\(currentMot.level)")
+        print("coredata level:\(currentWord.level)")
         print("theme \(themeFlashcard)")
     }
     
     override func viewDidLoad() {
-        let textFieldAppearance = UITextField.appearance()
-        textFieldAppearance.keyboardAppearance = .dark
         super.viewDidLoad()
-        
-       // answerTF.becomeFirstResponder()
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
 }

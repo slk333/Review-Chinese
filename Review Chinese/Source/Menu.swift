@@ -61,8 +61,8 @@ class Menu: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 // passer scoreTotalActuel à enterWord Scene pour qu'elle affiche et update le score
-        if segue.identifier=="toTypePinyinScene"{
-            (segue.destination as! Flashcard).scoreTotalActuel=scoreTotalActuel
+        if segue.identifier=="toFlashcard"{
+            (segue.destination as! Flashcard).currentScore=scoreTotalActuel
         }
     }
   }
