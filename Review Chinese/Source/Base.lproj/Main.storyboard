@@ -84,7 +84,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9VH-tD-fvp">
                                 <rect key="frame" x="16" y="167" width="343" height="315"/>
-                                <mutableString key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</mutableString>
+                                <string key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,30 +134,24 @@
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="skip:" destination="lCC-l2-OtE" eventType="touchUpInside" id="WuT-ks-hgo"/>
+                                            <action selector="enable0and10Buttons:" destination="lCC-l2-OtE" eventType="touchUpInside" id="ham-gA-pGv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOx-4Z-9hP">
                                         <rect key="frame" x="114.66666666666666" y="0.0" width="97.666666666666657" height="55"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <state key="normal" title="0">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="skip:" destination="lCC-l2-OtE" eventType="touchUpInside" id="C4l-Jd-Fli"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-9b-1C2">
                                         <rect key="frame" x="228.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <state key="normal" title="10">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="skip:" destination="lCC-l2-OtE" eventType="touchUpInside" id="F8R-9B-DOS"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -208,6 +202,8 @@
                         <outlet property="infoButton" destination="Co4-76-pAm" id="Cce-e0-j8m"/>
                         <outlet property="pronunciationTF" destination="rCe-1K-AHl" id="p37-8t-OEK"/>
                         <outlet property="scoreBar" destination="yxM-o5-Ea6" id="Flc-wD-mFf"/>
+                        <outlet property="setScoreTo0Button" destination="DOx-4Z-9hP" id="oA4-WU-EBh"/>
+                        <outlet property="setScoreTo10Button" destination="qhZ-9b-1C2" id="CGM-Bz-lTF"/>
                         <outlet property="skipButton" destination="jR6-eH-hxS" id="Cva-z2-qtu"/>
                         <outlet property="wrongButton" destination="Xs0-bE-NUd" id="M0v-jq-LSV"/>
                     </connections>

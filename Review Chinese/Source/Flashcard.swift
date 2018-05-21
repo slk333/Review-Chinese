@@ -17,8 +17,10 @@ import AVFoundation
 // Réagir en modifiant les données
 // Repartir sur le 1)
 
-
 class Flashcard: UIViewController{
+    
+        // MARK: - Properties
+    
     
     // critère de selection Core Data qui se base sur les niveaux selectionnés dans les réglages
     var levelPredicate: NSCompoundPredicate!
@@ -40,9 +42,10 @@ class Flashcard: UIViewController{
     var utterance=AVSpeechUtterance(string: "我")
     
     
+    // MARK: - Outlets
+    
     
     @IBOutlet weak var characterLabel:UILabel!
-   
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var pronunciationTF: UITextField!
     @IBOutlet weak var correctOrFalseSymbolLabel:UILabel!
@@ -50,107 +53,55 @@ class Flashcard: UIViewController{
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var wrongButton: UIButton!
+    @IBOutlet weak var setScoreTo0Button: UIButton!
+    @IBOutlet weak var setScoreTo10Button: UIButton!
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        // La scène Flashcard va s'afficher à l'écran
+   
+    // MARK: - IBActions
+
+    
+    @IBAction func enable0and10Buttons(_ sender: UIButton?){
         
-        // Load les réglages, qui resteront fixes tant que la Flashcard est à l'écran
-        // Creer un critère de selection en fonction des règlages
-        // Stocker ce critère pour pouvoir l'utiser à chaque nouvelle question
+        setScoreTo0Button.isEnabled = true
+        setScoreTo10Button.isEnabled = true
+        setScoreTo0Button.setTitle("0", for: .normal)
+        setScoreTo10Button.setTitle("10", for: .normal)
         
-        let settings = UserDefaults.standard
+      }
+    
+    func disable0and10Buttons(){
         
-        // quelles sont les listes sélectionnées dans les réglages
-        
-        var levelPredicates=[NSPredicate]()
-        if settings.bool(forKey: "HSK 1"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))
-        }
-        if settings.bool(forKey: "HSK 2"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))
-        }
-        if settings.bool(forKey: "HSK 3"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "3"))
-        }
-        if settings.bool(forKey: "HSK 4"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "4"))
-        }
-        if settings.bool(forKey: "HSK 5"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "5"))
-        }
-        if settings.bool(forKey: "HSK 6"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "6"))
-        }
-        if settings.bool(forKey: "Custom List"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "7"))
-        }
-        
-        levelPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
-        
-        // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
-        versionFlashcard = settings.bool(forKey: "Chinese To English")
-        themeFlashcard = settings.bool(forKey: "English To Chinese")
-        print("themeFlashcard: ")
-        print(themeFlashcard)
-        versionFlashcard = !themeFlashcard
-        
-        createNewQuestion()
+        setScoreTo0Button.isEnabled = false
+        setScoreTo10Button.isEnabled = false
+        setScoreTo0Button.setTitle("", for: .normal)
+        setScoreTo10Button.setTitle("", for: .normal)
         
     }
     
-    @IBAction func backFromDefinitionScene(segue:UIStoryboardSegue){
-        
-        createNewQuestion()
-    }
-    
-    
-    /*
-     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // on va dans la scene de definition
-     guard let _ = sender as? UIButton else{return}
-     
-     // si c'est via le bouton faux, on réduit le score
-     
-     decreaseScoreAndSave()
-     
-     // passer le mot actuel à la dictionaryScene
-     (segue.destination as! DetailViewController).mot=currentWord
-     (segue.destination as! DetailViewController).haveBackItem = false
-     }
-     */
+
     
     @IBAction func skip(_ sender: UIButton){
-        if correctOrFalseSymbolLabel.text! != "✗"{
-            
-            
-            increaseScoreAndSave()
-            
-        }
+        if correctOrFalseSymbolLabel.text! != "✗"{increaseScoreAndSave()} // n'augmenter le score que si il n'y pas de croix
         
         // gestion de l'interface
+        disable0and10Buttons()
         correctOrFalseSymbolLabel.textColor=defaultGreenColor
         correctOrFalseSymbolLabel.text="✓"
-        characterLabel.text=currentWord.character
-        pronunciationTF.text=currentWord.pinyin
-        // afficher la définition
         skipButton.isEnabled=false
         wrongButton.isEnabled=false
+        if voiceEnabled{self.speechSynthesizer.speak(utterance)}
+        
+        // afficher la réponse
+        characterLabel.text=currentWord.character
+        pronunciationTF.text=currentWord.pinyin
         definitionLabel.text=currentWord.definition
-        // VOICE
-        if voiceEnabled{
-            self.speechSynthesizer.speak(utterance)}
         
-        
-        
-        
-        // schedule la new question dans 1 seconde
-        
-        _=Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {_ in self.createNewQuestion()})
-        
-        
-    }
+        // schedule la new question dans x temps
+        _=Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {_ in self.createNewQuestion()})}
+    
+    
+      // MARK: - Methodes
     
     func increaseScoreAndSave(){
         if themeFlashcard{
@@ -177,7 +128,7 @@ class Flashcard: UIViewController{
             currentScore += Int(incrementUp)
             
         }
-        
+
     }
     
     func decreaseScoreAndSave(){
@@ -202,9 +153,7 @@ class Flashcard: UIViewController{
         
     }
     
-    
-    
-    
+   
     
     func updateExpirationDateAndSave(){
         // définition d'une nouvelle date de révision et sauvegarde
@@ -226,14 +175,14 @@ class Flashcard: UIViewController{
     
     
     func createNewQuestion(){
-        // Nettoyer et préparer l'interface
         
+        // Nettoyer et préparer l'interface
         skipButton.isEnabled=true
         wrongButton.isEnabled=true
         correctOrFalseSymbolLabel.text=""
         pronunciationTF.text=""
         definitionLabel.text=""
-       
+        
         
         /*
          scoreBar.progress=Float(currentScore)/Float(wordsNumberForCurrentLevel*10)
@@ -357,12 +306,7 @@ class Flashcard: UIViewController{
             
             // mise à jour de l'interface
             
-            
             characterLabel.text = currentWord.character
-           
-            
-            
-            
             
         }
         
@@ -380,5 +324,56 @@ class Flashcard: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
+        let currentWord = wordManager.getWord()
+        wordManager.changeScoreBy(3, forWord: currentWord)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        // La scène Flashcard va s'afficher à l'écran
+        
+        // Load les réglages, qui resteront fixes tant que la Flashcard est à l'écran
+        // Creer un critère de selection en fonction des règlages
+        // Stocker ce critère pour pouvoir l'utiser à chaque nouvelle question
+        
+        let settings = UserDefaults.standard
+        
+        // quelles sont les listes sélectionnées dans les réglages
+        
+        var levelPredicates=[NSPredicate]()
+        if settings.bool(forKey: "HSK 1"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))
+        }
+        if settings.bool(forKey: "HSK 2"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))
+        }
+        if settings.bool(forKey: "HSK 3"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "3"))
+        }
+        if settings.bool(forKey: "HSK 4"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "4"))
+        }
+        if settings.bool(forKey: "HSK 5"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "5"))
+        }
+        if settings.bool(forKey: "HSK 6"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "6"))
+        }
+        if settings.bool(forKey: "Custom List"){
+            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "7"))
+        }
+        
+        levelPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
+        
+        // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
+        versionFlashcard = settings.bool(forKey: "Chinese To English")
+        themeFlashcard = settings.bool(forKey: "English To Chinese")
+        print("themeFlashcard: ")
+        print(themeFlashcard)
+        versionFlashcard = !themeFlashcard
+        
+        createNewQuestion()
+        
     }
 }

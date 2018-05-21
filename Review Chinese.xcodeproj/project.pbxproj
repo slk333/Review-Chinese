@@ -22,6 +22,7 @@
 		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
 		7D97531D204A202F00B593A9 /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = 7D97531C204A202F00B593A9 /* open-sans */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
+		7DA98D4C20B35F1B00D59288 /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA98D4B20B35F1B00D59288 /* WordManager.swift */; };
 		7DC9778C204A302E003E212C /* BinTxt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9778B204A302E003E212C /* BinTxt.txt */; };
 		7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* Settings.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		7DA98D4B20B35F1B00D59288 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		7DC9778B204A302E003E212C /* BinTxt.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = BinTxt.txt; sourceTree = "<group>"; };
 		7DD5045D203CC6D400E5C520 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,10 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				2FF5D9161DB3664B005C277A /* Main.storyboard */,
-				2F6EFAA01DDB7C7B006F88A1 /* Menu.swift */,
 				2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */,
+				7DA98D4B20B35F1B00D59288 /* WordManager.swift */,
 				2F6706C41DBB3D610055EB0D /* Dashboard.swift */,
 				2F6706C21DBB39A10055EB0D /* ListContent.swift */,
+				2F6EFAA01DDB7C7B006F88A1 /* Menu.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				7D558CD4203D687300712BD0 /* Fonts.swift in Sources */,
 				2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */,
+				7DA98D4C20B35F1B00D59288 /* WordManager.swift in Sources */,
 				2F6706C31DBB39A10055EB0D /* ListContent.swift in Sources */,
 				2F3F2CE01DD0E34C00473AE1 /* Flashcard.swift in Sources */,
 				2F6706C51DBB3D610055EB0D /* Dashboard.swift in Sources */,
