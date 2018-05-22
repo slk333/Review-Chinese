@@ -41,6 +41,7 @@ class Flashcard: UIViewController{
     let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
     var utterance=AVSpeechUtterance(string: "我")
     
+    var wordManager: WordManager!
     
     // MARK: - Outlets
     
@@ -189,133 +190,35 @@ class Flashcard: UIViewController{
          print(Float(currentScore)/Float(wordsNumberForCurrentLevel*10))
          */
         
-        // Choix d'une flashcard
-        // Thème ou Version
         
-        // Vérifier si il y a des mot à réviser
-        
-        
-        let currentDateAsNumber:Double=Date().timeIntervalSinceReferenceDate
-        let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
-        
-        // PREDICATES
-        
+        if let obtainedWord = wordManager.getWord() {
+                    currentWord = obtainedWord
+                }
+                    
+                else {
+                    skipButton.isHidden=true
+                    pronunciationTF.text="Come back later!"
+                    pronunciationTF.isEnabled=false
+                    characterLabel.text=""
+                    infoButton.isHidden=true
+                    return
+                }
+                
         if themeFlashcard{
-            let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.themeExpiration), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,reviewPredicate])
-            
-            let sorting=NSSortDescriptor(key: "themeExpiration", ascending: true)
-            expiredWordsRequest.sortDescriptors=[sorting]
-            
-            guard  let expiredWords=try? context.fetch(expiredWordsRequest) else {return}
-            
-            if expiredWords.count != 0{
-                // si il y a un mot à réviser, on prend le plus ancien
-                currentWord=expiredWords.first
-            }
-                
-            else{
-                // Il n'y a plus de mot à réviser
-                // 1) il reste des mots jamais apparus
-                
-                let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
-                
-                
-                let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.themeExpiration), "1000000000")
-                fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,newPredicate])
-                
-                guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
-                
-                if neverSeenWords.count != 0{
-                    currentWord=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
-                    
-                }
-                    
-                    // il ne reste plus du tout de mots à réviser
-                    
-                else {
-                    skipButton.isHidden=true
-                    pronunciationTF.text="Come back later!"
-                    pronunciationTF.isEnabled=false
-                    characterLabel.text=""
-                    infoButton.isHidden=true
-                    return
-                }
-                
-                
-            }
-            
-            
-            // mise à jour de l'interface
-            
             characterLabel.text=""
-            definitionLabel.text=currentWord.definition
+            definitionLabel.text=currentWord.definition}
             
-        }
-        
         if versionFlashcard{
-            
-            // PREDICATES
-            
-            
-            let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.versionExpiration), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,reviewPredicate])
-            
-            
-            let sorting=NSSortDescriptor(key: "versionExpiration", ascending: true)
-            expiredWordsRequest.sortDescriptors=[sorting]
-            
-            guard  let expiredWords=try? context.fetch(expiredWordsRequest) else {return}
-            
-            if expiredWords.count != 0{
-                // si il y a un mot à réviser, on prend le plus ancien
-                currentWord=expiredWords.first
-            }
-                
-            else{
-                
-                // Il n'y a plus de mot à réviser
-                // 1) il reste des mots jamais apparus
-                
-                let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
-                
-                
-                let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.versionExpiration), "1000000000")
-                fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [levelPredicate,newPredicate])
-                
-                guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
-                
-                if neverSeenWords.count != 0{
-                    currentWord=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
-                    
-                }
-                    
-                    // il ne reste plus du tout de mots à réviser
-                    
-                else {
-                    skipButton.isHidden=true
-                    pronunciationTF.text="Come back later!"
-                    pronunciationTF.isEnabled=false
-                    characterLabel.text=""
-                    infoButton.isHidden=true
-                    return
-                }
-                
-                
-            }
-            
-            // mise à jour de l'interface
-            
             characterLabel.text = currentWord.character
             
         }
         
         
-        if voiceEnabled{
+      /*  if voiceEnabled{
             utterance=AVSpeechUtterance(string: currentWord.character!)
             utterance.voice=self.voice
             
-        }
+        } */
         
         
         print("coredata level:\(currentWord.level)")
@@ -325,13 +228,15 @@ class Flashcard: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
-        let currentWord = wordManager.getWord()
-        wordManager.changeScoreBy(3, forWord: currentWord)
         
     }
     override func viewWillAppear(_ animated: Bool) {
         // La scène Flashcard va s'afficher à l'écran
+        
+        // créer un wordManager qui gérera la logique relative à : fournir le mot à réviser et sauvegarder les progrès dans la mémoire persistente
+        
+        wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
+
         
         // Load les réglages, qui resteront fixes tant que la Flashcard est à l'écran
         // Creer un critère de selection en fonction des règlages
@@ -340,31 +245,7 @@ class Flashcard: UIViewController{
         let settings = UserDefaults.standard
         
         // quelles sont les listes sélectionnées dans les réglages
-        
-        var levelPredicates=[NSPredicate]()
-        if settings.bool(forKey: "HSK 1"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))
-        }
-        if settings.bool(forKey: "HSK 2"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))
-        }
-        if settings.bool(forKey: "HSK 3"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "3"))
-        }
-        if settings.bool(forKey: "HSK 4"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "4"))
-        }
-        if settings.bool(forKey: "HSK 5"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "5"))
-        }
-        if settings.bool(forKey: "HSK 6"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "6"))
-        }
-        if settings.bool(forKey: "Custom List"){
-            levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "7"))
-        }
-        
-        levelPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
+    
         
         // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
         versionFlashcard = settings.bool(forKey: "Chinese To English")

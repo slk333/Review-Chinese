@@ -1,27 +1,121 @@
 import UIKit
 import CoreData
 
-class Word{}
 
 class WordManager{
+    
     let versionIsEnabled:Bool
     let themeIsEnabled:Bool
+    let settings = UserDefaults.standard
+    var activeLists: NSCompoundPredicate!
+    
+    // quelles sont les listes sélectionnées dans les réglages
+    
+    
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var reviewListIsEmpty:Bool!
     
+    private func getRandomFreshWord()->Mot?{
+        // Trouver un nouveau mot à étudier ou return nil si il n'y a plus de nouveaux mots
+        
+        let freshWordRequest=NSFetchRequest<Mot>(entityName: "Mot") // la requête qu'on paramètre
+        
+        
+        let wordIsFresh=NSPredicate(format: "%K == %@", #keyPath(Mot.themeExpiration), "1000000000") // le mot est new (quand son expiration est égale à l'expiration par défaut que chaque mot dispose lorsqu'il n'a jamais fait l'objet d'une réponse)
+        
+        freshWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [activeLists,wordIsFresh]) // le mot fait partie d'une liste active
+        
+        guard let freshWords=try? context.fetch(freshWordRequest)else{
+            fatalError("fxdfhfgyhdfdfgsdfg") // la requête n'a pas fonctionné
+            
+        }
+        
+        if !freshWords.isEmpty{
+           // il reste des mots fresh et on en retourne un au hasard
+            
+            return freshWords[Int(arc4random_uniform(UInt32(freshWords.count)))]
+            
+        }
+        
+        else { // il ne reste plus de fresh word
+            return nil}
+        
+        
+        
+    }
     
     
     
     
+    private func getWordFromReviewList()->Mot?{
+        // Trouver un mot à réviser ou return nil
+        
+        
+        let currentDateAsNumber:Double=Date().timeIntervalSinceReferenceDate
+        let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot") // la requête qu'on paramètre
+        
+        // le mot est expiré
+        var wordIsExpired=NSPredicate(format: "%K < %@", #keyPath(Mot.versionExpiration), String(currentDateAsNumber))
+        if themeIsEnabled {wordIsExpired=NSPredicate(format: "%K < %@", #keyPath(Mot.themeExpiration), String(currentDateAsNumber))}
+        
+        // ET le mot fait parti d'un niveau actif
+        expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [activeLists,wordIsExpired])
+        
+        // La liste est triée pour qu'on puisse facilement obtenir le plus ancien
+        var sorting=NSSortDescriptor(key: "versionExpiration", ascending: true)
+        if themeIsEnabled {sorting=NSSortDescriptor(key: "themeExpiration", ascending: true)}
+        expiredWordsRequest.sortDescriptors=[sorting]
+    
+        guard  let expiredWords=try? context.fetch(expiredWordsRequest) else {
+            // Il n'a pas été possible d'effectuer une requête
+             fatalError("azedfqsdf")}
+        
+        if !expiredWords.isEmpty{
+            // La requête a retourné au moins un mot à réviser, on prend le plus ancien
+           return expiredWords.first
+        }
+        else {
+            // La requête n'a retourné aucun mot à réviser, on retourne nil
+            return nil
+        }
+        
+    }
     
     
-    private func getRandomWordFromFreshList()->Word{return Word()}
-    private func getWordFromReviewList()->Word{return Word()}
+    
+    func createactiveListsPredicate()->NSCompoundPredicate{
+        // le word manager est créé avec une liste de niveaux selectionnés, qui ne pourra pas être changée en cours de route. Si les réglages sont changés, un nouveau wordmanager est de toute façon créé.
+        // Predicates cumulatifs (or predicates) : plus de predicates, plus de listes, plus de words
+        
+        var levelPredicates=[NSPredicate]()
+        if settings.bool(forKey: "HSK 1"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "1"))}
+        if settings.bool(forKey: "HSK 2"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "2"))}
+        if settings.bool(forKey: "HSK 3"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "3"))}
+        if settings.bool(forKey: "HSK 4"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "4"))}
+        if settings.bool(forKey: "HSK 5"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "5"))}
+        if settings.bool(forKey: "HSK 6"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "6"))}
+        if settings.bool(forKey: "Custom List"){levelPredicates.append(NSPredicate(format: "%K == %@", #keyPath(Mot.level), "7"))}
+       
+        return NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
+    }
+    
 
-    func getWord()->Word{return Word()}
+    func getWord()->Mot?{
+        if let expiredWord = getWordFromReviewList(){
+            return expiredWord
+        }
+        else if let freshWord = getRandomFreshWord(){
+            return freshWord
+        }
+        else {
+            return nil
+        }
+        
+    }
 
-    func changeScoreBy(_ n:Int,forWord:Word){}
+    
+    func changeScoreBy(_ n:Int,forWord:Mot){}
     
     
     
@@ -29,7 +123,9 @@ class WordManager{
     init(versionIsEnabled:Bool,themeIsEnabled:Bool) {
         self.versionIsEnabled = versionIsEnabled
         self.themeIsEnabled = themeIsEnabled
-    }
+        activeLists = createactiveListsPredicate() // seules les listes selectionnées dans les réglages sont étudiées
+        
+    } // fin de l'init
     
     
-}
+} // fin de Mot Manager
