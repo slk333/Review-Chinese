@@ -83,7 +83,10 @@ class Flashcard: UIViewController{
 
     
     @IBAction func skip(_ sender: UIButton){
-        if correctOrFalseSymbolLabel.text! != "✗"{increaseScoreAndSave()} // n'augmenter le score que si il n'y pas de croix
+        if correctOrFalseSymbolLabel.text! != "✗"{ // n'augmenter le score que si il n'y pas de croix
+            wordManager.increaseScore(for: currentWord)
+            
+        }
         
         // gestion de l'interface
         disable0and10Buttons()
@@ -104,36 +107,10 @@ class Flashcard: UIViewController{
     
       // MARK: - Methodes
     
-    func increaseScoreAndSave(){
-        if themeFlashcard{
-            
-            if currentWord.themeScore < 6 {incrementUp = 3}
-            if currentWord.themeScore >= 6 {incrementUp = 2}
-            if currentWord.themeScore >= 8 {incrementUp = 1}
-            if currentWord.themeScore == 10 {incrementUp = 0}
-            if currentWord.themeScore == 11 {incrementUp = -1}
-            currentWord.themeScore += Int16(incrementUp)
-            updateExpirationDateAndSave()
-            currentScore += Int(incrementUp)
-            
-        }
-        else if versionFlashcard{
-            
-            if currentWord.versionScore < 6 {incrementUp = 3}
-            if currentWord.versionScore >= 6 {incrementUp = 2}
-            if currentWord.versionScore >= 8 {incrementUp = 1}
-            if currentWord.versionScore == 10 {incrementUp = 0}
-            if currentWord.versionScore == 11 {incrementUp = -1}
-            currentWord.versionScore += Int16(incrementUp)
-            updateExpirationDateAndSave()
-            currentScore += Int(incrementUp)
-            
-        }
-
-    }
+   
     
     func decreaseScoreAndSave(){
-        
+        /*
         if themeFlashcard{
             if currentWord.themeScore>3{currentWord.themeScore=3}
             else {
@@ -151,29 +128,13 @@ class Flashcard: UIViewController{
             updateExpirationDateAndSave()
             currentScore-=1
         }
+ */
         
     }
     
    
     
-    func updateExpirationDateAndSave(){
-        // définition d'une nouvelle date de révision et sauvegarde
-        if themeFlashcard{
-            let tempsÀajouter=100*pow(3, Double(currentWord.themeScore))
-            currentWord.themeExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
-            try! context.save()
-        }
-        else if versionFlashcard{
-            let tempsÀajouter=100*pow(3, Double(currentWord.versionScore))
-            currentWord.versionExpiration=Int64(Date(timeIntervalSinceNow: tempsÀajouter).timeIntervalSinceReferenceDate)
-            try! context.save()
-            
-        }
-        
-        
-    }
-    
-    
+
     
     func createNewQuestion(){
         

@@ -115,9 +115,72 @@ class WordManager{
     }
 
     
-    func changeScoreBy(_ n:Int,forWord:Mot){}
+    func increaseScore(for word:Mot){
+        
+        print(word)
+        print("increaseScore")
+        let formerScore : Int16!
+        if themeIsEnabled{
+            formerScore = word.themeScore}
+        else{
+            formerScore = word.versionScore}
+        
+        var increment :Int16 = 0
+            if formerScore < 6 {increment = 3}
+            if formerScore >= 6 {increment = 2}
+            if formerScore >= 8 {increment = 1}
+            if formerScore == 10 {increment = 0}
+            if formerScore == 11 {increment = -1}
+        
+        if themeIsEnabled{
+            word.themeScore += increment}
+        else {
+            word.versionScore += increment}
+        
+            updateExpirationDate(for: word)
+            
+        
+        
+    }
     
     
+    
+    func decreaseScore(forWord:Mot){
+        
+    }
+    
+    func updateExpirationDate(for word:Mot){
+        print("updateExpirationDate")
+        
+        let score : Int16!
+        if themeIsEnabled{
+            score = word.themeScore}
+        else {
+            score = word.versionScore}
+        print("score")
+        print(score)
+        
+        
+            let spareTime = 100 * pow(3, Double(score))
+            print("spareTime")
+            print(spareTime)
+            let expirationDate = Date(timeIntervalSinceNow: spareTime)
+            let expirationInterval = Int64(expirationDate.timeIntervalSinceReferenceDate)
+        
+        if themeIsEnabled{
+            word.themeExpiration = expirationInterval}
+        else {
+            word.versionExpiration = expirationInterval
+        }
+        save()
+        
+    }
+    
+    func save(){
+      
+        print("save")
+        try! context.save()
+    }
     
     
     init(versionIsEnabled:Bool,themeIsEnabled:Bool) {
