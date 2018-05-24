@@ -10,40 +10,44 @@
 		2F0677481DB39E56000FFDBD /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0677471DB39E56000FFDBD /* Loader.swift */; };
 		2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0677491DB39F62000FFDBD /* Mot+CoreDataClass.swift */; };
 		2F06774C1DB39F62000FFDBD /* Mot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06774A1DB39F62000FFDBD /* Mot+CoreDataProperties.swift */; };
-		2F3F2CE01DD0E34C00473AE1 /* EnterWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */; };
-		2F6706C31DBB39A10055EB0D /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */; };
-		2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */; };
-		2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */; };
-		2FC3FACF1DF30D6D0063B138 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */; };
+		2F3F2CE01DD0E34C00473AE1 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */; };
+		2F6706C31DBB39A10055EB0D /* ListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C21DBB39A10055EB0D /* ListContent.swift */; };
+		2F6706C51DBB3D610055EB0D /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C41DBB3D610055EB0D /* Dashboard.swift */; };
+		2F6EFAA11DDB7C7B006F88A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6EFAA01DDB7C7B006F88A1 /* Menu.swift */; };
 		2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5D9121DB3664B005C277A /* AppDelegate.swift */; };
-		2FF5D9151DB3664B005C277A /* AutoEvalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */; };
 		2FF5D9181DB3664B005C277A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D9161DB3664B005C277A /* Main.storyboard */; };
 		2FF5D91B1DB3664B005C277A /* HSKRekt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5D9191DB3664B005C277A /* HSKRekt.xcdatamodeld */; };
 		2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91C1DB3664B005C277A /* Assets.xcassets */; };
 		2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D91E1DB3664B005C277A /* LaunchScreen.storyboard */; };
-		2FFCFC621DC122A0006AD1D5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */; };
+		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
+		7D97531D204A202F00B593A9 /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = 7D97531C204A202F00B593A9 /* open-sans */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
+		7DA98D4C20B35F1B00D59288 /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA98D4B20B35F1B00D59288 /* WordManager.swift */; };
+		7DC9778C204A302E003E212C /* BinTxt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9778B204A302E003E212C /* BinTxt.txt */; };
+		7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5045D203CC6D400E5C520 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F0677471DB39E56000FFDBD /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		2F0677491DB39F62000FFDBD /* Mot+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mot+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2F06774A1DB39F62000FFDBD /* Mot+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mot+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterWordViewController.swift; sourceTree = "<group>"; };
-		2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
-		2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		2F6706C21DBB39A10055EB0D /* ListContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContent.swift; sourceTree = "<group>"; };
+		2F6706C41DBB3D610055EB0D /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		2F6EFAA01DDB7C7B006F88A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2FF5D90F1DB3664B005C277A /* Review Chinese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Review Chinese.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF5D9121DB3664B005C277A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEvalViewController.swift; sourceTree = "<group>"; };
 		2FF5D9171DB3664B005C277A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FF5D91A1DB3664B005C277A /* HSKRekt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HSKRekt.xcdatamodel; sourceTree = "<group>"; };
 		2FF5D91C1DB3664B005C277A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FF5D91F1DB3664B005C277A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FF5D9211DB3664B005C277A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		7DA98D4B20B35F1B00D59288 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
+		7DC9778B204A302E003E212C /* BinTxt.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = BinTxt.txt; sourceTree = "<group>"; };
+		7DD5045D203CC6D400E5C520 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				7DA7E5B01FB25C2300AF0031 /* Animator.swift */,
+				7D558CD3203D687200712BD0 /* Fonts.swift */,
+				7D97531C204A202F00B593A9 /* open-sans */,
+				7DC9778B204A302E003E212C /* BinTxt.txt */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -118,7 +125,7 @@
 		7DFAE56C203C66BE005296F6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */,
+				7DD5045D203CC6D400E5C520 /* Settings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -127,12 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				2FF5D9161DB3664B005C277A /* Main.storyboard */,
-				2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */,
-				2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */,
-				2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */,
-				2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */,
-				2FFCFC611DC122A0006AD1D5 /* DetailViewController.swift */,
-				2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */,
+				2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */,
+				7DA98D4B20B35F1B00D59288 /* WordManager.swift */,
+				2F6706C41DBB3D610055EB0D /* Dashboard.swift */,
+				2F6706C21DBB39A10055EB0D /* ListContent.swift */,
+				2F6EFAA01DDB7C7B006F88A1 /* Menu.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -164,7 +170,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "antoine weber";
 				TargetAttributes = {
 					2FF5D90E1DB3664B005C277A = {
@@ -198,7 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC9778C204A302E003E212C /* BinTxt.txt in Resources */,
 				2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */,
+				7D97531D204A202F00B593A9 /* open-sans in Resources */,
 				2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */,
 				2FF5D9181DB3664B005C277A /* Main.storyboard in Resources */,
 			);
@@ -211,16 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FFCFC621DC122A0006AD1D5 /* DetailViewController.swift in Sources */,
-				2FF5D9151DB3664B005C277A /* AutoEvalViewController.swift in Sources */,
+				7D558CD4203D687300712BD0 /* Fonts.swift in Sources */,
 				2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */,
-				2F6706C31DBB39A10055EB0D /* CharacterTableViewController.swift in Sources */,
-				2F3F2CE01DD0E34C00473AE1 /* EnterWordViewController.swift in Sources */,
-				2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */,
-				2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */,
+				7DA98D4C20B35F1B00D59288 /* WordManager.swift in Sources */,
+				2F6706C31DBB39A10055EB0D /* ListContent.swift in Sources */,
+				2F3F2CE01DD0E34C00473AE1 /* Flashcard.swift in Sources */,
+				2F6706C51DBB3D610055EB0D /* Dashboard.swift in Sources */,
+				7DD5045E203CC6D400E5C520 /* Settings.swift in Sources */,
+				2F6EFAA11DDB7C7B006F88A1 /* Menu.swift in Sources */,
 				2F0677481DB39E56000FFDBD /* Loader.swift in Sources */,
 				2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */,
-				2FC3FACF1DF30D6D0063B138 /* SettingsViewController.swift in Sources */,
 				2F06774C1DB39F62000FFDBD /* Mot+CoreDataProperties.swift in Sources */,
 				7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */,
 				2FF5D91B1DB3664B005C277A /* HSKRekt.xcdatamodeld in Sources */,
@@ -262,6 +270,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -269,6 +278,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -298,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -320,6 +330,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -327,6 +338,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -349,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -363,10 +375,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B5G2XX6DXX;
 				INFOPLIST_FILE = "$(SRCROOT)/Review Chinese/App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.laddyvia.Review Chinese";
+				PRODUCT_BUNDLE_IDENTIFIER = review;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -377,10 +389,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B5G2XX6DXX;
 				INFOPLIST_FILE = "$(SRCROOT)/Review Chinese/App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.laddyvia.Review Chinese";
+				PRODUCT_BUNDLE_IDENTIFIER = review;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

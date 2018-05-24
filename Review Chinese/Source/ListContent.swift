@@ -1,6 +1,6 @@
 import UIKit
 import CoreData
-class CharacterTableViewController: UITableViewController {
+class ListContent: UITableViewController {
     
     
     
@@ -19,7 +19,10 @@ class CharacterTableViewController: UITableViewController {
     
     // méthodes
     
+      /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        
      let destination=segue.destination as! DetailViewController
         
         fetchRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.index), String(selectedRow+decalage))
@@ -30,27 +33,33 @@ class CharacterTableViewController: UITableViewController {
 
             destination.mot=mot
        
-        
+ 
     }
+    
+    
+    
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedRow=indexPath.row
         return indexPath
     }
+ */
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
          let triParDate:NSFetchRequest<Mot>=Mot.fetchRequest()
         if hskLevel==1{
             let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
-            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")
+            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")
             triParDate.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,notNew])
             
         }
-        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")}
+        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")}
         
         
         
-            triParDate.sortDescriptors=[NSSortDescriptor(key: "date", ascending: true)]
+            triParDate.sortDescriptors=[NSSortDescriptor(key: "themeExpiration", ascending: true)]
         motsSortedByDate=try! context.fetch(triParDate)
         
         
@@ -102,11 +111,11 @@ class CharacterTableViewController: UITableViewController {
         let characterLabel=cell.viewWithTag(1) as! UILabel
         let scoreLabel=cell.viewWithTag(2) as! UILabel
         characterLabel.text=mot.character
-         scoreLabel.text=String(mot.score)
+         scoreLabel.text=String(mot.themeScore)
        
             let dateLabel=cell.viewWithTag(3) as! UILabel
-        if mot.date != 1000000000{
-            let date = Date(timeIntervalSinceReferenceDate: mot.date)
+        if mot.themeExpiration != 1000000000{
+            let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.themeExpiration))
             dateLabel.text=dateFormatter.string(from: date)}
         else{
         dateLabel.text=""

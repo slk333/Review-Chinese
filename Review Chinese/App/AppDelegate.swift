@@ -1,22 +1,27 @@
-//
-//  AppDelegate.swift
-//  HSKRekt
-//
-//  Created by Antoine Weber on 16/10/2016.
-//  Copyright © 2016 antoine weber. All rights reserved.
-//
-
 import UIKit
 import CoreData
+
+// initialisé avec la liste HSK1 selectionnée
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+  
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // check au lancement de l'application si la base de donné est vide
+        
+        let defaults = UserDefaults.standard
+        let isLoaded = defaults.bool(forKey: "isLoaded")
+        if !isLoaded{_=Loader()}
+      
+        
+        
+        
+        
         return true
     }
 
