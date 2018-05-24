@@ -185,10 +185,7 @@ class WordManager{
         
     }
     
-    
-    func applyIncrement(for word:Mot){
-        
-    }
+
     
   
     

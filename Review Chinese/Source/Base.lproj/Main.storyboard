@@ -83,18 +83,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9VH-tD-fvp">
-                                <rect key="frame" x="16" y="167" width="343" height="315"/>
-                                <string key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</string>
+                                <rect key="frame" x="16" y="167" width="343" height="232"/>
+                                <mutableString key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolosum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0wQ-I4-QIS">
-                                <rect key="frame" x="24" y="523" width="327" height="55"/>
+                                <rect key="frame" x="24" y="440" width="327" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xs0-bE-NUd">
                                         <rect key="frame" x="0.0" y="0.0" width="98.666666666666671" height="55"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <state key="normal" title="✗">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,6 +105,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co4-76-pAm">
                                         <rect key="frame" x="114.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="notSureAboutTheAnswer:" destination="lCC-l2-OtE" eventType="touchUpInside" id="D7C-aB-Hod"/>
@@ -112,7 +113,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR6-eH-hxS">
                                         <rect key="frame" x="228.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="➔">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,11 +131,11 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="u87-wH-zED">
-                                <rect key="frame" x="24" y="586" width="327" height="55"/>
+                                <rect key="frame" x="24" y="555" width="327" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxL-wY-nFQ">
                                         <rect key="frame" x="0.0" y="0.0" width="98" height="55"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="...">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,8 +146,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOx-4Z-9hP">
                                         <rect key="frame" x="114.66666666666666" y="0.0" width="97.666666666666657" height="55"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -156,8 +157,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-9b-1C2">
                                         <rect key="frame" x="228.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -179,7 +180,7 @@
                         <constraints>
                             <constraint firstItem="Saa-hN-Fzf" firstAttribute="top" secondItem="fXr-qf-9HY" secondAttribute="bottom" constant="11" id="0zz-av-LCH"/>
                             <constraint firstItem="pMX-KH-zPL" firstAttribute="top" secondItem="fXr-qf-9HY" secondAttribute="bottom" constant="8" id="3Sv-CQ-HXB"/>
-                            <constraint firstItem="u87-wH-zED" firstAttribute="top" secondItem="0wQ-I4-QIS" secondAttribute="bottom" constant="8" id="3ft-Wk-3Vh"/>
+                            <constraint firstItem="u87-wH-zED" firstAttribute="top" secondItem="0wQ-I4-QIS" secondAttribute="bottom" constant="60" id="3ft-Wk-3Vh"/>
                             <constraint firstItem="lsf-cI-6fd" firstAttribute="top" secondItem="fXr-qf-9HY" secondAttribute="bottom" constant="8" id="4jD-5W-r4u"/>
                             <constraint firstItem="Saa-hN-Fzf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d5Q-KY-wJb" secondAttribute="leadingMargin" id="6j3-th-b5E"/>
                             <constraint firstItem="yxM-o5-Ea6" firstAttribute="trailing" secondItem="d5Q-KY-wJb" secondAttribute="trailingMargin" id="7vT-oI-KqU"/>
@@ -196,7 +197,7 @@
                             <constraint firstItem="0wQ-I4-QIS" firstAttribute="leading" secondItem="d5Q-KY-wJb" secondAttribute="leadingMargin" constant="8" id="Rc4-fn-aaz"/>
                             <constraint firstItem="fXr-qf-9HY" firstAttribute="trailing" secondItem="d5Q-KY-wJb" secondAttribute="trailingMargin" id="V4Q-Uq-RUY"/>
                             <constraint firstItem="yxM-o5-Ea6" firstAttribute="top" secondItem="YGF-bx-ecW" secondAttribute="bottom" constant="8" id="ZE1-ef-jbo"/>
-                            <constraint firstItem="PeI-3d-7va" firstAttribute="top" secondItem="u87-wH-zED" secondAttribute="bottom" constant="49" id="djC-eE-41M"/>
+                            <constraint firstItem="PeI-3d-7va" firstAttribute="top" secondItem="u87-wH-zED" secondAttribute="bottom" constant="80" id="djC-eE-41M"/>
                             <constraint firstItem="pMX-KH-zPL" firstAttribute="trailing" secondItem="d5Q-KY-wJb" secondAttribute="trailingMargin" id="eBI-u5-L1p"/>
                             <constraint firstItem="9VH-tD-fvp" firstAttribute="top" secondItem="pMX-KH-zPL" secondAttribute="bottom" constant="18" id="gbn-PX-6lu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Saa-hN-Fzf" secondAttribute="trailing" constant="12" id="hDn-ds-bGl"/>

@@ -94,7 +94,7 @@ class Flashcard: UIViewController{
         
         wordManager.increaseScore(for: currentWord, toTen: true)
         displayAnswerInterface()
-        createNewQuestionIn(seconds: 1)
+        createNewQuestionIn(seconds: 0.5)
         
     }
     
@@ -108,15 +108,19 @@ class Flashcard: UIViewController{
         setScoreTo10Button.isEnabled = true
         setScoreTo0Button.setTitle("0", for: .normal)
         setScoreTo10Button.setTitle("10", for: .normal)
+        sender?.removeTarget(self, action: #selector(enable0and10Buttons), for: .touchUpInside)
+        sender?.addTarget(self, action: #selector(disable0and10Buttons), for: .touchUpInside)
         
       }
     
-    func disable0and10Buttons(){
+    @objc func disable0and10Buttons(){
         
         setScoreTo0Button.isEnabled = false
         setScoreTo10Button.isEnabled = false
         setScoreTo0Button.setTitle("", for: .normal)
         setScoreTo10Button.setTitle("", for: .normal)
+        toggleButtonsButton.removeTarget(self, action: #selector(disable0and10Buttons), for: .touchUpInside)
+        toggleButtonsButton.addTarget(self, action: #selector(enable0and10Buttons), for: .touchUpInside)
         
     }
     
@@ -124,11 +128,11 @@ class Flashcard: UIViewController{
     
    func displayAnswerInterface(){
     // gestion de l'interface
-    disable0and10Buttons()
+ 
     correctOrFalseSymbolLabel.textColor=defaultGreenColor
     correctOrFalseSymbolLabel.text="✓"
     skipButton.isEnabled=false
-    wrongButton.isEnabled=false
+    wrongButton.isEnabled=true
     infoButton.isEnabled=false
     toggleButtonsButton.isEnabled=false
     
@@ -176,6 +180,7 @@ class Flashcard: UIViewController{
         correctOrFalseSymbolLabel.text=""
         pronunciationTF.text=""
         definitionLabel.text=""
+        
         
         
         /*
