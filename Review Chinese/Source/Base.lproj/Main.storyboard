@@ -99,10 +99,16 @@
                                         <state key="normal" title="✗">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="noIdeaAboutTheAnswer:" destination="lCC-l2-OtE" eventType="touchUpInside" id="dEx-Dm-GpE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co4-76-pAm">
                                         <rect key="frame" x="114.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
                                         <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="notSureAboutTheAnswer:" destination="lCC-l2-OtE" eventType="touchUpInside" id="D7C-aB-Hod"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR6-eH-hxS">
                                         <rect key="frame" x="228.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
@@ -144,6 +150,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetScore:" destination="lCC-l2-OtE" eventType="touchUpInside" id="QKm-Sq-eMA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-9b-1C2">
                                         <rect key="frame" x="228.66666666666666" y="0.0" width="98.333333333333343" height="55"/>
@@ -152,6 +161,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="skipWordForALongTime:" destination="lCC-l2-OtE" eventType="touchUpInside" id="lhP-6Z-XAy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -205,6 +217,7 @@
                         <outlet property="setScoreTo0Button" destination="DOx-4Z-9hP" id="oA4-WU-EBh"/>
                         <outlet property="setScoreTo10Button" destination="qhZ-9b-1C2" id="CGM-Bz-lTF"/>
                         <outlet property="skipButton" destination="jR6-eH-hxS" id="Cva-z2-qtu"/>
+                        <outlet property="toggleButtonsButton" destination="sxL-wY-nFQ" id="iZg-Wt-O5U"/>
                         <outlet property="wrongButton" destination="Xs0-bE-NUd" id="M0v-jq-LSV"/>
                     </connections>
                 </viewController>

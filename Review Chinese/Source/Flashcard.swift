@@ -54,6 +54,7 @@ class Flashcard: UIViewController{
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var wrongButton: UIButton!
+    @IBOutlet weak var toggleButtonsButton: UIButton!
     @IBOutlet weak var setScoreTo0Button: UIButton!
     @IBOutlet weak var setScoreTo10Button: UIButton!
     
@@ -61,6 +62,45 @@ class Flashcard: UIViewController{
    
     // MARK: - IBActions
 
+    
+    
+    
+    @IBAction func notSureAboutTheAnswer(_ sender: UIButton?){
+        
+        wordManager.updateExpirationDate(for: currentWord)
+        displayAnswerInterface()
+        createNewQuestionIn(seconds: 1)
+        
+    }
+    
+    
+    @IBAction func noIdeaAboutTheAnswer(_ sender: UIButton?){
+        
+        wordManager.decreaseScore(for: currentWord, toZero: false)
+        displayAnswerInterface()
+        createNewQuestionIn(seconds: 2)
+        
+    }
+    
+    @IBAction func resetScore(_ sender: UIButton?){
+        
+        wordManager.decreaseScore(for: currentWord, toZero: true)
+        displayAnswerInterface()
+        createNewQuestionIn(seconds: 5)
+        
+    }
+    
+    @IBAction func skipWordForALongTime(_ sender: UIButton?){
+        
+        wordManager.increaseScore(for: currentWord, toTen: true)
+        displayAnswerInterface()
+        createNewQuestionIn(seconds: 1)
+        
+    }
+    
+    
+    
+    
     
     @IBAction func enable0and10Buttons(_ sender: UIButton?){
         
@@ -80,67 +120,59 @@ class Flashcard: UIViewController{
         
     }
     
+    
+    
+   func displayAnswerInterface(){
+    // gestion de l'interface
+    disable0and10Buttons()
+    correctOrFalseSymbolLabel.textColor=defaultGreenColor
+    correctOrFalseSymbolLabel.text="✓"
+    skipButton.isEnabled=false
+    wrongButton.isEnabled=false
+    infoButton.isEnabled=false
+    toggleButtonsButton.isEnabled=false
+    
+    if voiceEnabled{self.speechSynthesizer.speak(utterance)}
+    
+    // afficher la réponse
+    characterLabel.text=currentWord.character
+    pronunciationTF.text=currentWord.pinyin
+    definitionLabel.text=currentWord.definition
+    }
+    
+    
+    func createNewQuestionIn(seconds:Double){
+    _=Timer.scheduledTimer(withTimeInterval: seconds, repeats: false, block: {_ in self.createNewQuestion()})
+    }
+    
+    
 
     
     @IBAction func skip(_ sender: UIButton){
-        if correctOrFalseSymbolLabel.text! != "✗"{ // n'augmenter le score que si il n'y pas de croix
-            wordManager.increaseScore(for: currentWord)
-            
-        }
+        // n'augmenter le score que si il n'y pas de croix
         
-        // gestion de l'interface
-        disable0and10Buttons()
-        correctOrFalseSymbolLabel.textColor=defaultGreenColor
-        correctOrFalseSymbolLabel.text="✓"
-        skipButton.isEnabled=false
-        wrongButton.isEnabled=false
-        if voiceEnabled{self.speechSynthesizer.speak(utterance)}
-        
-        // afficher la réponse
-        characterLabel.text=currentWord.character
-        pronunciationTF.text=currentWord.pinyin
-        definitionLabel.text=currentWord.definition
+        wordManager.increaseScore(for: currentWord, toTen: false)
+    
+        displayAnswerInterface()
+     
         
         // schedule la new question dans x temps
-        _=Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {_ in self.createNewQuestion()})}
+        createNewQuestionIn(seconds: 0.5)
+        
+        }
     
     
       // MARK: - Methodes
     
    
     
-    func decreaseScoreAndSave(){
-        /*
-        if themeFlashcard{
-            if currentWord.themeScore>3{currentWord.themeScore=3}
-            else {
-                if currentWord.themeScore>1{currentWord.themeScore-=2}
-                else{ if currentWord.themeScore==1{currentWord.themeScore=0}}}
-            updateExpirationDateAndSave()
-            currentScore-=1
-        }
-        else if versionFlashcard{
-            
-            if currentWord.versionScore>3{currentWord.versionScore=3}
-            else {
-                if currentWord.versionScore>1{currentWord.versionScore-=2}
-                else{ if currentWord.versionScore==1{currentWord.versionScore=0}}}
-            updateExpirationDateAndSave()
-            currentScore-=1
-        }
- */
-        
-    }
-    
-   
-    
-
-    
     func createNewQuestion(){
         
         // Nettoyer et préparer l'interface
         skipButton.isEnabled=true
         wrongButton.isEnabled=true
+        infoButton.isEnabled=true
+        toggleButtonsButton.isEnabled=true
         correctOrFalseSymbolLabel.text=""
         pronunciationTF.text=""
         definitionLabel.text=""
@@ -156,7 +188,7 @@ class Flashcard: UIViewController{
                     currentWord = obtainedWord
                 }
                     
-                else {
+                else { // il n'y a plus rien à réviser ou à apprendre
                     skipButton.isHidden=true
                     pronunciationTF.text="Come back later!"
                     pronunciationTF.isEnabled=false
