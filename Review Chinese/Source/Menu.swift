@@ -2,6 +2,8 @@ import UIKit
 import CoreData
 
 // variables globales
+
+
 var hskLevel=1
 var wordsNumberForCurrentLevel:Int{
     switch hskLevel{
@@ -21,6 +23,7 @@ var wordsNumberForCurrentLevel:Int{
     
     
 }
+ 
 var voiceEnabled=false
 
 

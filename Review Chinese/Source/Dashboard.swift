@@ -1,17 +1,13 @@
 import UIKit
 
 class Dashboard: UITableViewController {
-let listTitles=["Review Schedule","HSK 1","HSK 2","HSK 3","HSK 4","HSK 5"]
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let characterVC=segue.destination as! ListContent
+        let wordList=segue.destination as! WordList
         let cell=sender as! UITableViewCell
         let label=cell.textLabel!
-        characterVC.listeEnCours=label.text!
-        if label.text! == "HSK 2"{characterVC.decalage=153}
-         if label.text! == "HSK 3"{characterVC.decalage=153+150}
-         if label.text! == "HSK 4"{characterVC.decalage=153+150+300}
-         if label.text! == "HSK 5"{characterVC.decalage=153+150+300+600}
+        wordList.listName=label.text!
     }
     
    

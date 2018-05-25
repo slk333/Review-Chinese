@@ -57,7 +57,7 @@ Love@Eight@Dad,Daddy,Papa@A cup,A glass@Beijing (Capital of China)@Measure Word 
         try! context.save()
         
         defaults.set(true, forKey: "isLoaded")
-            // print("loaded once and for all")
+             print("loaded once and for all")
         }
         
         

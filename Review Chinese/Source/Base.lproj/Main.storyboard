@@ -84,7 +84,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9VH-tD-fvp">
                                 <rect key="frame" x="16" y="167" width="343" height="232"/>
-                                <mutableString key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolosum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</mutableString>
+                                <string key="text">Lorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolosum um DolorLorem Ipsum DolorLorem Ipsum DLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum DolorLorem Ipsum Dolom DolorLorem Ipsum DolorLorem Ipsum Dolor  ▐▐</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -716,10 +716,10 @@
             </objects>
             <point key="canvasLocation" x="-615" y="-260"/>
         </scene>
-        <!--List Content-->
+        <!--Words-->
         <scene sceneID="Ubc-8Q-Psg">
             <objects>
-                <tableViewController title="List Content" id="Dpb-MF-uR3" customClass="ListContent" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Words" id="Dpb-MF-uR3" userLabel="Words" customClass="WordList" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SY4-oy-ps1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

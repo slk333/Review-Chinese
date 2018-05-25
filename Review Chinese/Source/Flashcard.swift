@@ -26,8 +26,8 @@ class Flashcard: UIViewController{
     var levelPredicate: NSCompoundPredicate!
     
     // réglage pour savoir si version(traduction du chinois) ou thème (trouver le chinois)
-    var themeFlashcard = true
-    var versionFlashcard = false
+    var themeFlashcard=false
+    var versionFlashcard=false
     
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -219,7 +219,7 @@ class Flashcard: UIViewController{
         } */
         
         
-        print("coredata level:\(currentWord.level)")
+        print("coredata level:\(currentWord.listName!)")
         print("theme \(themeFlashcard)")
     }
     
@@ -232,7 +232,9 @@ class Flashcard: UIViewController{
         // La scène Flashcard va s'afficher à l'écran
         
         // créer un wordManager qui gérera la logique relative à : fournir le mot à réviser et sauvegarder les progrès dans la mémoire persistente
-        
+        let settings = UserDefaults.standard
+        versionFlashcard = settings.bool(forKey: "Chinese To English")
+        themeFlashcard = settings.bool(forKey: "English To Chinese")
         wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
 
         
@@ -240,14 +242,13 @@ class Flashcard: UIViewController{
         // Creer un critère de selection en fonction des règlages
         // Stocker ce critère pour pouvoir l'utiser à chaque nouvelle question
         
-        let settings = UserDefaults.standard
+      
         
         // quelles sont les listes sélectionnées dans les réglages
     
         
         // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
-        versionFlashcard = settings.bool(forKey: "Chinese To English")
-        themeFlashcard = settings.bool(forKey: "English To Chinese")
+       
         print("themeFlashcard: ")
         print(themeFlashcard)
         versionFlashcard = !themeFlashcard
@@ -255,4 +256,8 @@ class Flashcard: UIViewController{
         createNewQuestion()
         
     }
+    
+    
 }
+
+

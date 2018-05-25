@@ -24,18 +24,18 @@ extension Mot {
         self.exemple = exemple
         self.pinyin = pinyin
         self.index = Int32(index)
-        self.level = {
+        self.listName = {
             switch self.index{
             case let x where x >= 1203:
-                return 5
+                return "HSK 5"
             case let x where x >= 603:
-                return 4
+                return "HSK 4"
             case let x where x >= 303:
-                return 3
+                return "HSK 3"
             case let x where x >= 153:
-                return 2
+                return "HSK 2"
             default:
-                return 1
+                return "HSK 1"
             }
             
             
@@ -52,7 +52,7 @@ extension Mot {
     @NSManaged public var themeExpiration: Int64
     @NSManaged public var definition: String?
     @NSManaged public var index: Int32
-    @NSManaged public var level: Int16
+    @NSManaged public var listName: String?
     @NSManaged public var pinyin: String?
     @NSManaged public var versionScore: Int16
     @NSManaged public var versionExpiration: Int64
