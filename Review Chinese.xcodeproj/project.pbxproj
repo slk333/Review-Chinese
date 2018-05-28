@@ -85,10 +85,19 @@
 				7DFAE569203C6666005296F6 /* Data */,
 				7DFAE56A203C6693005296F6 /* App */,
 				7DFAE56D203C66D9005296F6 /* Source */,
+				7D84A49320BC097C00243E37 /* Storyboard */,
 				7DFAE56B203C66AD005296F6 /* Helper */,
 				7DFAE56C203C66BE005296F6 /* Settings */,
 			);
 			path = "Review Chinese";
+			sourceTree = "<group>";
+		};
+		7D84A49320BC097C00243E37 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2FF5D9161DB3664B005C277A /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		7DFAE569203C6666005296F6 /* Data */ = {
@@ -135,7 +144,6 @@
 		7DFAE56D203C66D9005296F6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2FF5D9161DB3664B005C277A /* Main.storyboard */,
 				2F3F2CDF1DD0E34C00473AE1 /* Flashcard.swift */,
 				7DA98D4B20B35F1B00D59288 /* WordManager.swift */,
 				2F6706C41DBB3D610055EB0D /* Dashboard.swift */,

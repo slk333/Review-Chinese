@@ -14,8 +14,17 @@ class WordList: UITableViewController {
     var decalage=0
     var motsSortedByDate=[Mot]()
     let dateFormatter = DateFormatter()
-    
-    
+    var isVersionSchedule:Bool{
+        return (listName == "Chinese To English")
+    }
+    var isThemeSchedule:Bool{
+        return (listName == "English To Chinese")
+    }
+    var isBrowsingPredifinedList:Bool{
+        // à l'exception de english to chinese et chinese to english, il s'agit de naviguer dans une liste de mots qui n'affichera que les scores
+        return !isThemeSchedule && !isVersionSchedule
+    }
+
     
     // méthodes
     
@@ -49,7 +58,14 @@ class WordList: UITableViewController {
         super.viewDidLoad()
         
         // listName est fourni par le viewController qui présente ce viewController
+        if isBrowsingPredifinedList{
         wordList = listManager.getAllWordsFromListNamed(listName)
+        }
+        if !isBrowsingPredifinedList{
+            wordList = listManager.getWordsThatHaveAnExpirationDate(listName)
+        }
+        
+        
         print("wordList.count")
         print(wordList.count)
        
@@ -99,24 +115,39 @@ class WordList: UITableViewController {
          } */
         
         let mot=wordList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath)
         let characterLabel=cell.viewWithTag(1) as! UILabel
-        let scoreLabel=cell.viewWithTag(2) as! UILabel
+        let versionScoreLabel=cell.viewWithTag(2) as! UILabel
+        let themeScoreLabel=cell.viewWithTag(3) as! UILabel
+        let dateLabel=cell.viewWithTag(4) as! UILabel
+        
         characterLabel.text=mot.character
         
-        
-        
-        let dateLabel=cell.viewWithTag(3) as! UILabel
-        if mot.versionExpiration != 1000000000{
-            scoreLabel.text=String(mot.versionScore)
-            let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.versionExpiration))
-            dateLabel.text=dateFormatter.string(from: date)}
-        else{
-            
-            dateLabel.text=""
-            scoreLabel.text=""
+        // naviguer dans les listes prédéfinies, on affiche seulement le score, pas la date de révision
+        if isBrowsingPredifinedList {
+            versionScoreLabel.text = String(mot.versionScore)
+            themeScoreLabel.text = String(mot.themeScore)
+             dateLabel.text=""
+            return cell
         }
-        return cell
+        // sinon il s'agit des listes de schedules qui affichent la date et le score du mode choisi
+        if isVersionSchedule{
+            versionScoreLabel.text = String(mot.versionScore)
+            themeScoreLabel.text = ""
+            let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.versionExpiration))
+            dateLabel.text=dateFormatter.string(from: date)
+            return cell
+           
+        }
+        if isThemeSchedule{
+            versionScoreLabel.text = ""
+            themeScoreLabel.text = String(mot.themeScore)
+            let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.themeExpiration))
+            dateLabel.text=dateFormatter.string(from: date)
+            return cell
+            
+        }
+      return cell
         
         
     }

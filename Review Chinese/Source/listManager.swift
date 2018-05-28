@@ -24,6 +24,27 @@ class ListManager{
     }
     
     
+    func getWordsThatHaveAnExpirationDate(_ listName:String)->[Mot]{
+        var hasExpirationDatePredicate:NSPredicate!
+        if listName == "Chinese To English"{
+            hasExpirationDatePredicate = NSPredicate(format: "%K != 1000000000", #keyPath(Mot.versionExpiration))
+        }
+        if listName == "English To Chinese"{
+            hasExpirationDatePredicate = NSPredicate(format: "%K != 1000000000", #keyPath(Mot.themeExpiration))
+        }
+        
+        let fetchRequest:NSFetchRequest<Mot>=Mot.fetchRequest()
+        fetchRequest.predicate = hasExpirationDatePredicate
+        let words = try! context.fetch(fetchRequest)
+        print("words.count")
+        print(words.count)
+        return words
+        
+        
+    }
+    
+    
+    
     
   
     
