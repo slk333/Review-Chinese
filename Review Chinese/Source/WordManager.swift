@@ -37,8 +37,7 @@ class WordManager{
         if !freshWords.isEmpty{
             // il reste des mots fresh et on en retourne un au hasard
             
-            return freshWords[Int(arc4random_uniform(UInt32(freshWords.count)))]
-            
+            return freshWords.randomElement()
         }
             
         else { // il ne reste plus de fresh word
