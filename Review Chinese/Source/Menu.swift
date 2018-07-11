@@ -33,6 +33,20 @@ var voiceEnabled=false
 
 class Menu: UIViewController {
     
+    
+    @IBOutlet weak var startTrainingButton: UIButton!
+    @IBOutlet weak var dashboardButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     var scoreTotalActuel:Int=0
      let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -57,7 +71,17 @@ class Menu: UIViewController {
     }
     
     override func viewDidLoad() {
-     
+        let kern = 1
+     startTrainingButton.titleLabel?.attributedText = NSAttributedString(string: "START TRAINING", attributes: [.kern: kern])
+      dashboardButton.titleLabel?.attributedText = NSAttributedString(string: "DASHBOARD", attributes: [.kern: kern])
+        settingsButton.titleLabel?.attributedText = NSAttributedString(string: "SETTINGS", attributes: [.kern: kern])
+        
+        
+        
+        
+        
+        
+        
           super.viewDidLoad()
     }
 

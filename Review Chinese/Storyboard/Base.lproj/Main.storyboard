@@ -228,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ah-Pi-BP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="626.60098522167493"/>
+            <point key="canvasLocation" x="324" y="610"/>
         </scene>
         <!--Menu-->
         <scene sceneID="w5X-4k-2E7">
@@ -255,7 +255,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="Cnf-I7-X0Q"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="START TRAINING">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,7 +267,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
                                         <rect key="frame" x="0.0" y="67" width="343" height="61"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="DASHBOARD">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,7 +282,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="5dd-DV-Wyz"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="SETTINGS">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,6 +308,11 @@
                         <viewLayoutGuide key="safeArea" id="SoL-ee-yGJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="kZy-VU-p0T"/>
+                    <connections>
+                        <outlet property="dashboardButton" destination="5wY-LL-4DJ" id="ypi-MX-33y"/>
+                        <outlet property="settingsButton" destination="hDp-bx-cMg" id="cxq-lG-OX8"/>
+                        <outlet property="startTrainingButton" destination="Igu-eF-VhE" id="qWd-IT-QLm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO3-Nu-ZIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
