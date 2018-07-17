@@ -77,8 +77,8 @@ class Menu: UIViewController {
         settingsButton.titleLabel?.attributedText = NSAttributedString(string: "SETTINGS", attributes: [.kern: kern])
         
         
-        
-        
+     
+            
         
         
         
