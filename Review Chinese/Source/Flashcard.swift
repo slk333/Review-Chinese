@@ -67,16 +67,16 @@ class Flashcard: UIViewController{
     
     @IBAction func notSureAboutTheAnswer(_ sender: UIButton?){
         
-        wordManager.updateExpirationDate(for: currentWord)
+        wordManager.decreaseScore(for: currentWord, toZero: false, byOne: true)
         displayAnswerInterface()
-        createNewQuestionIn(seconds: 1)
+        createNewQuestionIn(seconds: 1.5)
         
     }
     
     
     @IBAction func noIdeaAboutTheAnswer(_ sender: UIButton?){
         
-        wordManager.decreaseScore(for: currentWord, toZero: false)
+        wordManager.decreaseScore(for: currentWord, toZero: false, byOne: false)
         displayAnswerInterface()
         createNewQuestionIn(seconds: 2)
         
@@ -84,7 +84,7 @@ class Flashcard: UIViewController{
     
     @IBAction func resetScore(_ sender: UIButton?){
         
-        wordManager.decreaseScore(for: currentWord, toZero: true)
+        wordManager.decreaseScore(for: currentWord, toZero: true, byOne: false)
         displayAnswerInterface()
         createNewQuestionIn(seconds: 5)
         

@@ -121,11 +121,11 @@ class WordManager{
         
         if toTen{
             if themeIsEnabled{
-                word.themeScore = 10
+                word.themeScore = 11
                 
             }
             else{
-                word.versionScore = 10
+                word.versionScore = 11
                 
             }
             updateExpirationDate(for: word)
@@ -143,8 +143,8 @@ class WordManager{
         if formerScore < 6 {increment = 3}
         if formerScore >= 6 {increment = 2}
         if formerScore >= 8 {increment = 1}
-        if formerScore == 10 {increment = 0}
-        if formerScore == 11 {increment = -1}
+        if formerScore == 11 {increment = 0}
+        
         
         if themeIsEnabled{
             word.themeScore += increment}
@@ -157,7 +157,7 @@ class WordManager{
         
     }
     
-    func decreaseScore(for word:Mot,toZero:Bool){
+    func decreaseScore(for word:Mot,toZero:Bool,byOne:Bool){
         if toZero{
             if themeIsEnabled{
                 word.themeScore = 0
@@ -165,6 +165,18 @@ class WordManager{
             }
             else{
                 word.versionScore = 0
+                
+            }
+            updateExpirationDate(for: word)
+            return
+        }
+        if byOne{
+            if themeIsEnabled{
+                word.themeScore -= 1
+                
+            }
+            else{
+                word.versionScore -= 1
                 
             }
             updateExpirationDate(for: word)
