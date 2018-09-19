@@ -173,10 +173,12 @@ class WordManager{
         if byOne{
             if themeIsEnabled{
                 word.themeScore -= 1
+                if word.themeScore < 0 {word.themeScore = 0}
                 
             }
             else{
                 word.versionScore -= 1
+                if word.versionScore < 0 {word.versionScore = 0}
                 
             }
             updateExpirationDate(for: word)
