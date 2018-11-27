@@ -99,7 +99,6 @@
 				7DFAE569203C6666005296F6 /* Data */,
 				7DFAE56A203C6693005296F6 /* App */,
 				7DFAE56B203C66AD005296F6 /* Helper */,
-				7DFAE56C203C66BE005296F6 /* Settings */,
 			);
 			path = "Review Chinese";
 			sourceTree = "<group>";
@@ -159,14 +158,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		7DFAE56C203C66BE005296F6 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				7DD5045D203CC6D400E5C520 /* Settings.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		7DFAE56D203C66D9005296F6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +167,7 @@
 				2F6706C41DBB3D610055EB0D /* Dashboard.swift */,
 				2F6706C21DBB39A10055EB0D /* WordList.swift */,
 				7D7E7E3620B879EA000B0007 /* listManager.swift */,
+				7DD5045D203CC6D400E5C520 /* Settings.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
