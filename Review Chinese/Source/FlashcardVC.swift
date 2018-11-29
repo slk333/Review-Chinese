@@ -17,7 +17,7 @@ import AVFoundation
 // Réagir en modifiant les données
 // Repartir sur le 1)
 
-class Flashcard: UIViewController{
+class FlashcardVC: UIViewController{
     
         // MARK: - Properties
     
@@ -136,7 +136,7 @@ class Flashcard: UIViewController{
     infoButton.isEnabled=false
     toggleButtonsButton.isEnabled=false
     
-    if voiceEnabled{self.speechSynthesizer.speak(utterance)}
+   // if voiceEnabled{self.speechSynthesizer.speak(utterance)}
     
     // afficher la réponse
     characterLabel.text=currentWord.character

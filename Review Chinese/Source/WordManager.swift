@@ -87,6 +87,8 @@ class WordManager{
     
     
     func createactiveListsPredicate()->NSCompoundPredicate{
+        // lire les réglages pour ne choisir que les listes selectionnées par l'utilisateur
+        
         // le word manager est créé avec une liste de niveaux selectionnés, qui ne pourra pas être changée en cours de route. Si les réglages sont changés, un nouveau wordmanager est de toute façon créé.
         // Predicates cumulatifs (or predicates) : plus de predicates, plus de listes, plus de words
         
@@ -101,6 +103,9 @@ class WordManager{
         
         return NSCompoundPredicate(orPredicateWithSubpredicates: levelPredicates)
     }
+    
+    
+    
     
     
     func getWord()->Mot?{

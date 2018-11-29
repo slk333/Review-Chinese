@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Flashcard-->
+        <!--FlashcardVC-->
         <scene sceneID="0hZ-dx-Fd4">
             <objects>
-                <viewController id="lCC-l2-OtE" customClass="Flashcard" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lCC-l2-OtE" customClass="FlashcardVC" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d5Q-KY-wJb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" alpha="0.75" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-o5-Ea6">
+                            <progressView opaque="NO" alpha="0.75" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="yxM-o5-Ea6">
                                 <rect key="frame" x="16" y="8" width="343" height="2"/>
                                 <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="324" y="610"/>
         </scene>
-        <!--Menu-->
+        <!--MenuVC-->
         <scene sceneID="w5X-4k-2E7">
             <objects>
-                <viewController id="cy8-98-ZOB" customClass="Menu" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cy8-98-ZOB" customClass="MenuVC" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YuO-tk-ZQF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -565,7 +565,7 @@
         <!--Dashboard-->
         <scene sceneID="wpT-db-8fZ">
             <objects>
-                <tableViewController title="Dashboard" id="m1F-bM-E8Z" customClass="Dashboard" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Dashboard" id="m1F-bM-E8Z" customClass="DashboardVC" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xHu-NK-zsQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -767,7 +767,7 @@
         <!--Words-->
         <scene sceneID="Ubc-8Q-Psg">
             <objects>
-                <tableViewController title="Words" id="Dpb-MF-uR3" userLabel="Words" customClass="WordList" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Words" id="Dpb-MF-uR3" userLabel="Words" customClass="WordListVC" customModule="Review_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SY4-oy-ps1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

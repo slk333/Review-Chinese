@@ -1,9 +1,11 @@
 import UIKit
 import CoreData
-class WordList: UITableViewController {
+
+class WordListVC: UITableViewController {
     
     
-    // but : afficher tous les mots d'une listNamee
+    // but de la scène: afficher tous les mots de la liste selectionnée
+    // si il s'agit d'une liste de révision, n'afficher que les mots à réviser ainsi que leur date de révision
     
     // propriétés
     
@@ -66,33 +68,13 @@ class WordList: UITableViewController {
         }
         
         
-        print("wordList.count")
-        print(wordList.count)
+        print("nombre de mots à affiche dans la liste : \(wordList.count)")
        
-        
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
        
         
-        /*
-        
-        let triParDate:NSFetchRequest<Mot>=Mot.fetchRequest()
-        if hskLevel==1{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
-            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")
-            triParDate.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,notNew])
-            
-        }
-        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.themeExpiration),"1000000000")}
-        
-        
-        
-        triParDate.sortDescriptors=[NSSortDescriptor(key: "themeExpiration", ascending: true)]
-        motsSortedByDate=try! context.fetch(triParDate)
-        
-        
-       
- */
+      
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -108,11 +90,6 @@ class WordList: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        /* if listName=="Review Schedule"{
-         mot=motsSortedByDate[indexPath.row]
-         } */
         
         let mot=wordList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath)

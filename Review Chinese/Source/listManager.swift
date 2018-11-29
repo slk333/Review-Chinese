@@ -9,7 +9,6 @@ class ListManager{
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-    
     func getAllWordsFromListNamed(_ listName:String)->[Mot]{
     
     let listPredicate = NSPredicate(format: "%K == %@", #keyPath(Mot.listName),listName)
