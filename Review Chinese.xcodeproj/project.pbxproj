@@ -56,6 +56,7 @@
 		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		7DA98D4B20B35F1B00D59288 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
+		7DAA5DE121BBE4BD00D824E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7DAD9F6020F6ABE700EE4C06 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		7DAD9F6120F6ABE700EE4C06 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		7DAD9F6220F6ABE700EE4C06 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		2FF5D9061DB3664A005C277A = {
 			isa = PBXGroup;
 			children = (
+				7DAA5DE121BBE4BD00D824E5 /* README.md */,
 				2FF5D9111DB3664B005C277A /* Review Chinese */,
 				2FF5D9101DB3664B005C277A /* Products */,
 			);
