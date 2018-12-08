@@ -33,7 +33,11 @@ class FlashcardVC: UIViewController{
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentWord:Mot!
     var correctText:String!
-    var currentScore:Int=0
+    
+    var currentScore = 0
+    var perfectScore = 0
+    
+    
     let defaultGreenColor=UIColor(red: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
     var incrementUp = Int32(3)
     
@@ -156,6 +160,7 @@ class FlashcardVC: UIViewController{
         // n'augmenter le score que si il n'y pas de croix
         
         wordManager.increaseScore(for: currentWord, toTen: false)
+        
     
         displayAnswerInterface()
      
@@ -183,10 +188,8 @@ class FlashcardVC: UIViewController{
         
         
         
-        /*
-         scoreBar.progress=Float(currentScore)/Float(wordsNumberForCurrentLevel*10)
-         print(Float(currentScore)/Float(wordsNumberForCurrentLevel*10))
-         */
+       
+       scoreBar.progress=Float(currentScore)/Float(perfectScore)
         
         
         if let obtainedWord = wordManager.getWord() {
@@ -236,7 +239,13 @@ class FlashcardVC: UIViewController{
         versionFlashcard = settings.bool(forKey: "Chinese To English")
         themeFlashcard = settings.bool(forKey: "English To Chinese")
         wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
-
+        
+        let scoreManager = ScoreManager(wordManager: wordManager)
+        currentScore = scoreManager.currentScore
+        perfectScore = scoreManager.perfectScore
+        scoreBar.progress=Float(currentScore)/Float(perfectScore)
+        
+        
         
         // Load les réglages, qui resteront fixes tant que la Flashcard est à l'écran
         // Creer un critère de selection en fonction des règlages

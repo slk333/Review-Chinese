@@ -15,6 +15,16 @@ class WordManager{
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var reviewListIsEmpty:Bool!
     
+    
+    
+    func getAllWords()->[Mot]?{
+        let allWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
+        allWordsRequest.predicate = activeLists
+        let words = try? context.fetch(allWordsRequest)
+        return words
+    }
+    
+    
     private func getRandomFreshWord()->Mot?{
         // Trouver un nouveau mot à étudier ou return nil si il n'y a plus de nouveaux mots
         
