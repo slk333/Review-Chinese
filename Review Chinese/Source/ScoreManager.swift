@@ -2,7 +2,7 @@ import UIKit
 // version => chinese to english
 
 class ScoreManager{
-    private let MAX_SCORE = 11
+    
  
     
     var currentScore = 0

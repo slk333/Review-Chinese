@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import AVFoundation
 
+let MAX_SCORE = 11
 
 // Présenter une flashcard et réagir à la réponse
 
@@ -19,15 +20,15 @@ import AVFoundation
 
 class FlashcardVC: UIViewController{
     
-        // MARK: - Properties
+    // MARK: - Properties
     
     
     // critère de selection Core Data qui se base sur les niveaux selectionnés dans les réglages
     var levelPredicate: NSCompoundPredicate!
     
     // réglage pour savoir si version(traduction du chinois) ou thème (trouver le chinois)
-    var themeFlashcard=false
-    var versionFlashcard=false
+    var isThemeMode = false
+    var isVersionMode = false
     
     
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -41,9 +42,9 @@ class FlashcardVC: UIViewController{
     let defaultGreenColor=UIColor(red: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
     var incrementUp = Int32(3)
     
-    let speechSynthesizer = AVSpeechSynthesizer()
-    let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
-    var utterance=AVSpeechUtterance(string: "我")
+    // let speechSynthesizer = AVSpeechSynthesizer()
+    // let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
+    // var utterance=AVSpeechUtterance(string: "我")
     
     var wordManager: WordManager!
     
@@ -60,7 +61,7 @@ class FlashcardVC: UIViewController{
     @IBOutlet weak var wrongButton: UIButton!
     @IBOutlet weak var toggleButtonsButton: UIButton!
     @IBOutlet weak var setScoreTo0Button: UIButton!
-    @IBOutlet weak var setScoreTo10Button: UIButton!
+    @IBOutlet weak var setScoreToMaxButton: UIButton!
     
     
    
@@ -109,9 +110,9 @@ class FlashcardVC: UIViewController{
     @IBAction func enable0and10Buttons(_ sender: UIButton?){
         
         setScoreTo0Button.isEnabled = true
-        setScoreTo10Button.isEnabled = true
+        setScoreToMaxButton.isEnabled = true
         setScoreTo0Button.setTitle("0", for: .normal)
-        setScoreTo10Button.setTitle("10", for: .normal)
+        setScoreToMaxButton.setTitle("\(MAX_SCORE)", for: .normal)
         sender?.removeTarget(self, action: #selector(enable0and10Buttons), for: .touchUpInside)
         sender?.addTarget(self, action: #selector(disable0and10Buttons), for: .touchUpInside)
         
@@ -120,9 +121,9 @@ class FlashcardVC: UIViewController{
     @objc func disable0and10Buttons(){
         
         setScoreTo0Button.isEnabled = false
-        setScoreTo10Button.isEnabled = false
+        setScoreToMaxButton.isEnabled = false
         setScoreTo0Button.setTitle("", for: .normal)
-        setScoreTo10Button.setTitle("", for: .normal)
+        setScoreToMaxButton.setTitle("", for: .normal)
         toggleButtonsButton.removeTarget(self, action: #selector(disable0and10Buttons), for: .touchUpInside)
         toggleButtonsButton.addTarget(self, action: #selector(enable0and10Buttons), for: .touchUpInside)
         
@@ -205,11 +206,11 @@ class FlashcardVC: UIViewController{
                     return
                 }
                 
-        if themeFlashcard{
+        if isThemeMode{
             characterLabel.text=""
             definitionLabel.text=currentWord.definition}
             
-        if versionFlashcard{
+        if isVersionMode{
             characterLabel.text = currentWord.character
             
         }
@@ -222,8 +223,9 @@ class FlashcardVC: UIViewController{
         } */
         
         
-        print("coredata level:\(currentWord.listName!)")
-        print("theme \(themeFlashcard)")
+      //  print("Word from list : \(currentWord.listName!)")
+      //   print("==============================")
+      
     }
     
     override func viewDidLoad() {
@@ -236,9 +238,9 @@ class FlashcardVC: UIViewController{
         
         // créer un wordManager qui gérera la logique relative à : fournir le mot à réviser et sauvegarder les progrès dans la mémoire persistente
         let settings = UserDefaults.standard
-        versionFlashcard = settings.bool(forKey: "Chinese To English")
-        themeFlashcard = settings.bool(forKey: "English To Chinese")
-        wordManager = WordManager(versionIsEnabled: versionFlashcard, themeIsEnabled: themeFlashcard)
+        isVersionMode = settings.bool(forKey: "Chinese To English")
+        isThemeMode = settings.bool(forKey: "English To Chinese")
+        wordManager = WordManager(versionIsEnabled: isVersionMode, themeIsEnabled: isThemeMode)
         
         let scoreManager = ScoreManager(wordManager: wordManager)
         currentScore = scoreManager.currentScore
@@ -258,10 +260,17 @@ class FlashcardVC: UIViewController{
         
         // quel est le mode d'apprentissage: version/thème (CN->EN/ EN->CN) ou les deux
        
-        print("themeFlashcard: ")
-        print(themeFlashcard)
-        versionFlashcard = !themeFlashcard
         
+        isVersionMode = !isThemeMode
+        if isVersionMode{
+            print("mode selectionné: Chinese -> English")
+        }
+        else if isThemeMode{
+             print("mode selectionné: English -> Chinese")
+            
+        }
+       
+
         createNewQuestion()
         
     }

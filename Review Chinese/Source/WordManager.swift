@@ -136,11 +136,11 @@ class WordManager{
         
         if toTen{
             if themeIsEnabled{
-                word.themeScore = 11
+                word.themeScore = Int16(MAX_SCORE)
                 
             }
             else{
-                word.versionScore = 11
+                word.versionScore = Int16(MAX_SCORE)
                 
             }
             updateExpirationDate(for: word)
@@ -158,7 +158,7 @@ class WordManager{
         if formerScore < 6 {increment = 3}
         if formerScore >= 6 {increment = 2}
         if formerScore >= 8 {increment = 1}
-        if formerScore == 11 {increment = 0}
+        if formerScore == Int16(MAX_SCORE) {increment = 0}
         
         
         if themeIsEnabled{
@@ -228,7 +228,8 @@ class WordManager{
     
     
     func updateExpirationDate(for word:Mot){
-        print("updateExpirationDate")
+          print("\n\n\n\n\n")
+        print("updating Expiration Date:")
         
         let score : Int16!
         if themeIsEnabled{
@@ -239,26 +240,28 @@ class WordManager{
             
             
         }
-        print("score")
-        print(score)
-        
+        if let score = score{
+         print("Nouveau Score : \(score)")
+        }
+      
+       
         
         let spareTime = 100 * pow(3, Double(score))
-        print("spareTime")
-        print(spareTime)
+        print("intervalle d'expiration : \(spareTime)s")
         let expirationDate = Date(timeIntervalSinceNow: spareTime)
         let expirationInterval = Int64(expirationDate.timeIntervalSinceReferenceDate)
-        print("expirationInterval")
-        print(expirationInterval)
+        
+        print("Date d'expiration : \(expirationDate)")
+       
         if themeIsEnabled{
             word.themeExpiration = expirationInterval}
         else {
             word.versionExpiration = expirationInterval
         }
-        print("versionScore")
-        print(word.versionScore)
-        print("themeScore")
-        print(word.themeScore)
+     //  print("score de version : \(word.versionScore)")
+      // print("score de thème : \(word.themeScore)")
+        
+        
         
         save()
         
@@ -266,15 +269,12 @@ class WordManager{
     
     func save(){
         
-        print("save")
-        print("context.hasChanges")
-        print(context.hasChanges)
         
+      //  print("Il y a des choses modifiées à sauvegarder : \(context.hasChanges)")
+       
         try! context.save()
-        
-        
-      
-        
+        // print("saved")
+         print("==============================")
         
         
         
@@ -285,7 +285,7 @@ class WordManager{
         self.versionIsEnabled = versionIsEnabled
         self.themeIsEnabled = themeIsEnabled
         guard versionIsEnabled != themeIsEnabled else {
-            fatalError("should not have both at same time")
+            fatalError("should not have version and theme at same time")
         }
         activeLists = createactiveListsPredicate() // seules les listes selectionnées dans les réglages sont étudiées
         

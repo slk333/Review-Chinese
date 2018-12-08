@@ -221,7 +221,7 @@
                         <outlet property="pronunciationTF" destination="rCe-1K-AHl" id="p37-8t-OEK"/>
                         <outlet property="scoreBar" destination="yxM-o5-Ea6" id="Flc-wD-mFf"/>
                         <outlet property="setScoreTo0Button" destination="DOx-4Z-9hP" id="oA4-WU-EBh"/>
-                        <outlet property="setScoreTo10Button" destination="qhZ-9b-1C2" id="CGM-Bz-lTF"/>
+                        <outlet property="setScoreToMaxButton" destination="qhZ-9b-1C2" id="j6h-RI-sBH"/>
                         <outlet property="skipButton" destination="jR6-eH-hxS" id="Cva-z2-qtu"/>
                         <outlet property="toggleButtonsButton" destination="sxL-wY-nFQ" id="iZg-Wt-O5U"/>
                         <outlet property="wrongButton" destination="Xs0-bE-NUd" id="M0v-jq-LSV"/>
