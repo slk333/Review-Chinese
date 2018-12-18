@@ -23,6 +23,8 @@
 		7D558CD4203D687300712BD0 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D558CD3203D687200712BD0 /* Fonts.swift */; };
 		7D7E7E3720B879EA000B0007 /* listManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7E7E3620B879EA000B0007 /* listManager.swift */; };
 		7D97531D204A202F00B593A9 /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = 7D97531C204A202F00B593A9 /* open-sans */; };
+		7D98279221C9B1B30046C955 /* phrases de chinois in Resources */ = {isa = PBXBuildFile; fileRef = 7D98279121C9B1B30046C955 /* phrases de chinois */; };
+		7D98279421C9B1D80046C955 /* phrases de chinois.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7D98279321C9B1D80046C955 /* phrases de chinois.rtf */; };
 		7DA7E5B11FB25C2300AF0031 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA7E5B01FB25C2300AF0031 /* Animator.swift */; };
 		7DA98D4C20B35F1B00D59288 /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA98D4B20B35F1B00D59288 /* WordManager.swift */; };
 		7DAD9F6620F6ABE700EE4C06 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DAD9F6020F6ABE700EE4C06 /* RobotoCondensed-Bold.ttf */; };
@@ -54,6 +56,8 @@
 		7D558CD3203D687200712BD0 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		7D7E7E3620B879EA000B0007 /* listManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listManager.swift; sourceTree = "<group>"; };
 		7D97531C204A202F00B593A9 /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "open-sans"; sourceTree = "<group>"; };
+		7D98279121C9B1B30046C955 /* phrases de chinois */ = {isa = PBXFileReference; lastKnownFileType = text; name = "phrases de chinois"; path = "Review Chinese/Helper/phrases de chinois"; sourceTree = SOURCE_ROOT; };
+		7D98279321C9B1D80046C955 /* phrases de chinois.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "phrases de chinois.rtf"; sourceTree = "<group>"; };
 		7DA7E5B01FB25C2300AF0031 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		7DA98D4B20B35F1B00D59288 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		7DAA5DE121BBE4BD00D824E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -158,6 +162,8 @@
 				7DAD9F5F20F6ABE700EE4C06 /* Roboto_Condensed */,
 				7D97531C204A202F00B593A9 /* open-sans */,
 				7DC9778B204A302E003E212C /* BinTxt.txt */,
+				7D98279121C9B1B30046C955 /* phrases de chinois */,
+				7D98279321C9B1D80046C955 /* phrases de chinois.rtf */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 				7DC9778C204A302E003E212C /* BinTxt.txt in Resources */,
 				2FF5D9201DB3664B005C277A /* LaunchScreen.storyboard in Resources */,
 				7D97531D204A202F00B593A9 /* open-sans in Resources */,
+				7D98279421C9B1D80046C955 /* phrases de chinois.rtf in Resources */,
+				7D98279221C9B1B30046C955 /* phrases de chinois in Resources */,
 				7DAD9F6720F6ABE700EE4C06 /* RobotoCondensed-Light.ttf in Resources */,
 				2FF5D91D1DB3664B005C277A /* Assets.xcassets in Resources */,
 				2FF5D9181DB3664B005C277A /* Main.storyboard in Resources */,

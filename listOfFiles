@@ -1,0 +1,39 @@
+README.md
+Review Chinese.xcodeproj/project.pbxproj
+Review Chinese.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+Review Chinese.xcodeproj/xcuserdata/antoineweber.xcuserdatad/xcschemes/Review Chinese.xcscheme
+Review Chinese.xcodeproj/xcuserdata/antoineweber.xcuserdatad/xcschemes/xcschememanagement.plist
+Review Chinese.xcodeproj/xcuserdata/laddyvia.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Review Chinese.xcodeproj/xcuserdata/laddyvia.xcuserdatad/xcschemes/HSKRekt.xcscheme
+Review Chinese.xcodeproj/xcuserdata/laddyvia.xcuserdatad/xcschemes/xcschememanagement.plist
+Review Chinese/App/AppDelegate.swift
+Review Chinese/App/Assets.xcassets/AppIcon.appiconset/Contents.json
+Review Chinese/App/Assets.xcassets/AppIcon.appiconset/logo copy.png
+Review Chinese/App/Assets.xcassets/Contents.json
+Review Chinese/App/Assets.xcassets/logo.imageset/Contents.json
+Review Chinese/App/Assets.xcassets/logo.imageset/logo copy.png
+Review Chinese/App/Base.lproj/LaunchScreen.storyboard
+Review Chinese/App/Info.plist
+Review Chinese/Data/HSKRekt.xcdatamodeld/.xccurrentversion
+Review Chinese/Data/HSKRekt.xcdatamodeld/HSKRekt.xcdatamodel/contents
+Review Chinese/Data/Loader.swift
+Review Chinese/Data/Mot+CoreDataClass.swift
+Review Chinese/Data/Mot+CoreDataProperties.swift
+Review Chinese/Helper/Animator.swift
+Review Chinese/Helper/BinTxt.txt
+Review Chinese/Helper/Fonts.swift
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-Bold.ttf
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-Italic.ttf
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-Light.ttf
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-LightItalic.ttf
+Review Chinese/Helper/Roboto_Condensed/RobotoCondensed-Regular.ttf
+Review Chinese/Source/DashboardVC.swift
+Review Chinese/Source/FlashcardVC.swift
+Review Chinese/Source/MenuVC.swift
+Review Chinese/Source/ScoreManager.swift
+Review Chinese/Source/SettingsVC.swift
+Review Chinese/Source/WordListVC.swift
+Review Chinese/Source/WordManager.swift
+Review Chinese/Source/listManager.swift
+Review Chinese/Storyboard/Base.lproj/Main.storyboard
