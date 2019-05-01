@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinyin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsf-cI-6fd">
-                                <rect key="frame" x="16" y="96" width="51.666666666666657" height="24"/>
+                                <rect key="frame" x="15.999999999999996" y="96" width="51.666666666666657" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="HRr-SV-rIK"/>
                                 </constraints>
@@ -239,54 +239,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Vb-0vk">
-                                <rect key="frame" x="157.66666666666666" y="30" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchScreenClean" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Vb-0vk">
+                                <rect key="frame" x="0.0" y="-13" width="375" height="737"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="bYx-VB-XVi"/>
-                                    <constraint firstAttribute="height" constant="60" id="srk-rp-baR"/>
-                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="nUX-ES-8sy"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-FU-FUo">
-                                <rect key="frame" x="16" y="120" width="343" height="195"/>
+                                <rect key="frame" x="56" y="264.66666666666669" width="303" height="195"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="61"/>
-                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="Cnf-I7-X0Q"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="31"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="START TRAINING">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <segue destination="lCC-l2-OtE" kind="show" identifier="toFlashcard" id="Em1-sA-1OH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
-                                        <rect key="frame" x="0.0" y="67" width="343" height="61"/>
-                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
+                                        <rect key="frame" x="0.0" y="67" width="303" height="61"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="31"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="DASHBOARD">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <segue destination="m1F-bM-E8Z" kind="show" identifier="infoAboutWord" id="dtj-xC-1kg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-bx-cMg">
-                                        <rect key="frame" x="0.0" y="134" width="343" height="61"/>
-                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-bx-cMg">
+                                        <rect key="frame" x="0.0" y="134" width="303" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="5dd-DV-Wyz"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="31"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="SETTINGS">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <segue destination="wpf-Vv-wwt" kind="show" identifier="toSettings" id="bpw-W2-AGQ"/>
@@ -300,11 +295,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="o4D-FU-FUo" firstAttribute="top" secondItem="oIt-Vb-0vk" secondAttribute="bottom" constant="30" id="1Xc-HR-s4T"/>
-                            <constraint firstItem="o4D-FU-FUo" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leadingMargin" id="Jp4-hk-Wmg"/>
-                            <constraint firstItem="oIt-Vb-0vk" firstAttribute="top" secondItem="SoL-ee-yGJ" secondAttribute="top" constant="30" id="aaT-vK-fxW"/>
+                            <constraint firstItem="o4D-FU-FUo" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leadingMargin" constant="40" id="Jp4-hk-Wmg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o4D-FU-FUo" secondAttribute="trailing" id="e9H-El-sCH"/>
-                            <constraint firstItem="oIt-Vb-0vk" firstAttribute="centerX" secondItem="SoL-ee-yGJ" secondAttribute="centerX" id="y43-Of-f9J"/>
+                            <constraint firstItem="o4D-FU-FUo" firstAttribute="centerY" secondItem="YuO-tk-ZQF" secondAttribute="centerY" id="gfj-hD-PTp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SoL-ee-yGJ"/>
                     </view>
@@ -848,7 +841,7 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.12941176470588234" green="0.12941176469999999" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -861,7 +854,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="120" height="120"/>
+        <image name="LaunchScreenClean" width="305" height="629"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xWB-c4-oFJ"/>
