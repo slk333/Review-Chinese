@@ -248,7 +248,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-FU-FUo">
                                 <rect key="frame" x="56" y="264.66666666666669" width="303" height="195"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE" customClass="KernButton" customModule="Review_Chinese" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="Cnf-I7-X0Q"/>
@@ -262,7 +262,7 @@
                                             <segue destination="lCC-l2-OtE" kind="show" identifier="toFlashcard" id="Em1-sA-1OH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ" customClass="KernButton" customModule="Review_Chinese" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="67" width="303" height="61"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="31"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -273,7 +273,7 @@
                                             <segue destination="m1F-bM-E8Z" kind="show" identifier="infoAboutWord" id="dtj-xC-1kg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-bx-cMg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-bx-cMg" customClass="KernButton" customModule="Review_Chinese" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="134" width="303" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="5dd-DV-Wyz"/>
@@ -302,11 +302,6 @@
                         <viewLayoutGuide key="safeArea" id="SoL-ee-yGJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="kZy-VU-p0T"/>
-                    <connections>
-                        <outlet property="dashboardButton" destination="5wY-LL-4DJ" id="ypi-MX-33y"/>
-                        <outlet property="settingsButton" destination="hDp-bx-cMg" id="cxq-lG-OX8"/>
-                        <outlet property="startTrainingButton" destination="Igu-eF-VhE" id="qWd-IT-QLm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO3-Nu-ZIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

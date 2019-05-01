@@ -1,6 +1,5 @@
 import UIKit
 import CoreData
-
 class WordListVC: UITableViewController {
     
     
@@ -26,7 +25,7 @@ class WordListVC: UITableViewController {
         // à l'exception de english to chinese et chinese to english, il s'agit de naviguer dans une liste de mots qui n'affichera que les scores
         return !isThemeSchedule && !isVersionSchedule
     }
-
+    
     
     // méthodes
     
@@ -61,7 +60,7 @@ class WordListVC: UITableViewController {
         
         // listName est fourni par le viewController qui présente ce viewController
         if isBrowsingPredifinedList{
-        wordList = listManager.getAllWordsFromListNamed(listName)
+            wordList = listManager.getAllWordsFromListNamed(listName)
         }
         if !isBrowsingPredifinedList{
             wordList = listManager.getWordsThatHaveAnExpirationDate(listName)
@@ -69,12 +68,12 @@ class WordListVC: UITableViewController {
         
         
         print("nombre de mots à affiche dans la liste : \(wordList.count)")
-       
+        
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-       
         
-      
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -104,7 +103,7 @@ class WordListVC: UITableViewController {
         if isBrowsingPredifinedList {
             versionScoreLabel.text = String(mot.versionScore)
             themeScoreLabel.text = String(mot.themeScore)
-             dateLabel.text=""
+            dateLabel.text=""
             return cell
         }
         // sinon il s'agit des listes de schedules qui affichent la date et le score du mode choisi
@@ -114,7 +113,7 @@ class WordListVC: UITableViewController {
             let date = Date(timeIntervalSinceReferenceDate: TimeInterval(mot.versionExpiration))
             dateLabel.text=dateFormatter.string(from: date)
             return cell
-           
+            
         }
         if isThemeSchedule{
             versionScoreLabel.text = ""
@@ -124,7 +123,7 @@ class WordListVC: UITableViewController {
             return cell
             
         }
-      return cell
+        return cell
         
         
     }
